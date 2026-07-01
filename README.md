@@ -9,6 +9,8 @@
 ![Autodesk](https://img.shields.io/badge/AutoDESK-0696D7?style=for-the-badge&logo=autodesk&logoColor=white)
 ![Esri ArcGIS Pro](https://img.shields.io/badge/Esri_ArcGIS_Pro-007AC2?style=for-the-badge&logo=esri&logoColor=white)
 ![BIM / GIS Indoor Routing](https://img.shields.io/badge/BIM%20%2F%20GIS-Indoor_Routing-brightgreen?style=for-the-badge&logo=diagram-project)
+![Dijkstra's Algorithm](https://img.shields.io/badge/Algorithm-Dijkstra's-orange?style=for-the-badge&logo=route)
+![Mermaid](https://img.shields.io/badge/Diagrams-Mermaid.js-FF69B4?style=for-the-badge&logo=diagram-project)
 
 ---
 
