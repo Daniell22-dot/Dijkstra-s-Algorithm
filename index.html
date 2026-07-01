@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeKUT 3D Campus Digital Twin</title>
+    
+    <!-- CesiumJS CSS -->
+    <link rel="stylesheet" href="https://cesium.com/downloads/cesiumjs/releases/1.119/Build/Cesium/Widgets/widgets.css" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/css/main.css" />
+    <link rel="stylesheet" href="src/css/cesium-override.css" />
+</head>
+<body>
+
+    <!--  CESIUM VIEWER  -->
+    <div id="cesiumContainer"></div>
+
+    <!--  HEADER  -->
+    <div class="header">
+        <h1><i class="fas fa-globe-africa"></i> DeKUT · 3D Campus Digital Twin</h1>
+        <div class="subtitle">BIM-GIS Integration · Smart Facility Management · Indoor Routing</div>
+    </div>
+
+    <!--  CONTROLS  -->
+    <div class="controls" id="controls">
+        <button class="btn active" id="btnBuildings" title="Toggle Buildings">
+            <i class="fas fa-building"></i>
+            <span>Buildings</span>
+        </button>
+        <button class="btn active" id="btnRooms" title="Toggle Rooms">
+            <i class="fas fa-door-open"></i>
+            <span>Rooms</span>
+        </button>
+        <button class="btn" id="btnRouting" title="Routing Mode">
+            <i class="fas fa-route"></i>
+            <span>Routing</span>
+        </button>
+        <button class="btn" id="btnReset" title="Reset View">
+            <i class="fas fa-home"></i>
+            <span>Reset</span>
+        </button>
+    </div>
+
+    <!--  ROUTING PANEL  -->
+    <div class="routing-panel" id="routingPanel">
+        <div class="routing-header">
+            <i class="fas fa-route"></i> Find Route
+            <button class="close-routing" id="closeRouting">&times;</button>
+        </div>
+        <div class="routing-body">
+            <div class="form-group">
+                <label>Start Location</label>
+                <input type="text" id="startInput" placeholder="e.g. Room 101" />
+            </div>
+            <div class="form-group">
+                <label>End Location</label>
+                <input type="text" id="endInput" placeholder="e.g. Room 301" />
+            </div>
+            <button class="btn-route" id="findRoute">
+                <i class="fas fa-search"></i> Find Route
+            </button>
+            <div class="route-result" id="routeResult">
+                <span class="route-info">Select start and end points</span>
+            </div>
+        </div>
+    </div>
+
+    <!--  INFO PANEL -->
+    <div class="info-panel" id="infoPanel">
+        <button class="close-btn" id="closeInfo">&times;</button>
+        <div class="element-name" id="elName">Room 201</div>
+        <div class="element-type" id="elType">Lecture Hall</div>
+        <div class="attr"><span class="key">Floor</span><span class="value" id="elFloor">2</span></div>
+        <div class="attr"><span class="key">Area</span><span class="value" id="elArea">45 m²</span></div>
+        <div class="attr"><span class="key">Capacity</span><span class="value" id="elCapacity">40</span></div>
+        <div class="attr"><span class="key">Equipment</span><span class="value" id="elEquipment">Projector, AC</span></div>
+        <div class="risk-badge low" id="elRisk"> Low Risk</div>
+    </div>
+
+    <!-- STATUS BAR  -->
+    <div class="status">
+        <span><i class="fas fa-map-pin"></i> Lat: -0.3981° · Lon: 36.9617°</span>
+        <span><i class="fas fa-cube"></i> <span id="elementCount">42</span> BIM Elements</span>
+        <span><i class="fas fa-route"></i> <span id="routeStatus">Ready</span></span>
+    </div>
+
+    <!-- CESIUM JS  -->
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.119/Build/Cesium/Cesium.js">
+    </script>
+
+    <!-- ===== APPLICATION JS ===== -->
+    <script src="src/js/main.js"></script>
+    <script src="src/js/cesium/viewer.js"></script>
+    <script src="src/js/cesium/layers.js"></script>
+    <script src="src/js/routing/network.js"></script>
+    <script src="src/js/routing/shortest-path.js"></script>
+    <script src="src/js/utils/helpers.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+pandas
+numpy
+openpyxl
+ifcopenshell
+shapely
+geopandas
+pyproj
+py3dtiles
+http.server
+psycopg2-binary
+sqlalchemy

@@ -1,0 +1,49 @@
+---
+id: 4096dc69-dba5-48ef-8abf-d7df177aeebf
+---
+graph TD
+    %% Styling
+    classDef phase fill:#f9f9f9,stroke:#333,stroke-width:2px;
+    classDef step fill:#fff,stroke:#666,stroke-width:1px;
+    classDef obj fill:#e1f5fe,stroke:#03a9f4,stroke-width:1.5px;
+    
+    %% Data Acquisition & Modeling
+    subgraph P1 [3D Modeling & Data Preparation]
+        A[ArchiCAD 3D Building Models] --> B[Export to Interoperable Format <br> e.g., IFC / OBJ]
+        B --> C[Convert to 3D Tiles <br> via Python Tools / Cesium ion]
+    end
+    class P1 phase;
+
+    %% Spatial Database Development
+    subgraph P2 [Database & Topology Setup]
+        D[Tabular/Attribute Data <br> Rooms, Doors, Windows] --> E[(Spatial Database <br> PostgreSQL/PostGIS or SQLite)]
+        F[Network Connectivity Data <br> Edges & Nodes] --> E
+    end
+    class P2 phase;
+
+    %% Web-GIS System Integration
+    subgraph P3 [Frontend Development & Logic]
+        G[CesiumJS Web Platform] --> H[Load 3D Tiles Layout]
+        E --> I[Backend API <br> Python / Flask or FastAPI]
+        I --> G
+    end
+    class P3 phase;
+
+    %% Specific Objectives Mapping
+    C --> Obj1{{"Objective 1: <br> Web-Viewable 3D Format"}}:::obj
+    E --> Obj2{{"Objective 2: <br> Spatial Database Storage"}}:::obj
+    
+    subgraph P4 [Phase 4: Smart Application Features]
+        G --> J[Raycasting / Feature Picking]
+        J --> Obj3{{"Objective 3: <br> Click-Based Info Queries"}}:::obj
+        
+        I --> K[Routing Engine Algorithm <br> Dijkstra / A* via NetworkX]
+        K --> Obj4{{"Objective 4: <br> Indoor Shortest Path Routing"}}:::obj
+    end
+    class P4 phase;
+    
+    %% Connections across subgraphs
+    Obj1 --> G
+    Obj2 --> I
+    Obj3 --> L[Interactive 3D Digital Twin Platform]
+    Obj4 --> L

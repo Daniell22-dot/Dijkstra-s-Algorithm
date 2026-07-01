@@ -1,0 +1,416 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #1a1a2e;
+    color: #e8e8f0;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* ---------------Cesium viewer---------*/
+#cesiumContainer {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* -------------Header ------*/
+.header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background: rgba(20, 20, 40, 0.85);
+    backdrop-filter: blur(12px);
+    padding: 10px 28px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    pointer-events: none;
+}
+
+.header h1 {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.header h1 i {
+    color: #4fc3f7;
+    margin-right: 8px;
+}
+
+.header .subtitle {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-top: 1px;
+}
+
+/*--------Controls ----------*/
+.controls {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.controls .btn {
+    background: rgba(20, 20, 40, 0.8);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    padding: 8px 14px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 100px;
+}
+
+.controls .btn:hover {
+    background: rgba(79, 195, 247, 0.12);
+    border-color: rgba(79, 195, 247, 0.15);
+    color: #ffffff;
+}
+
+.controls .btn i {
+    font-size: 14px;
+    width: 18px;
+    text-align: center;
+}
+
+.controls .btn.active {
+    background: rgba(79, 195, 247, 0.12);
+    border-color: rgba(79, 195, 247, 0.15);
+    color: #4fc3f7;
+}
+
+.controls .btn.highlight {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+}
+
+/* -----Routing Panel--------*/
+.routing-panel {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    z-index: 100;
+    background: rgba(20, 20, 40, 0.92);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    padding: 18px 22px;
+    min-width: 280px;
+    max-width: 340px;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.routing-panel.visible {
+    display: block;
+    animation: slideUp 0.25s ease;
+}
+
+.routing-panel .routing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 14px;
+}
+
+.routing-panel .routing-header i {
+    color: #f59e0b;
+    margin-right: 8px;
+}
+
+.routing-panel .close-routing {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.routing-panel .close-routing:hover {
+    color: #fff;
+}
+
+.routing-panel .form-group {
+    margin-bottom: 12px;
+}
+
+.routing-panel .form-group label {
+    display: block;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.routing-panel .form-group input {
+    width: 100%;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    transition: border 0.2s;
+}
+
+.routing-panel .form-group input:focus {
+    outline: none;
+    border-color: rgba(79, 195, 247, 0.3);
+}
+
+.routing-panel .form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.routing-panel .btn-route {
+    width: 100%;
+    padding: 10px;
+    background: rgba(79, 195, 247, 0.15);
+    border: 1px solid rgba(79, 195, 247, 0.15);
+    border-radius: 8px;
+    color: #4fc3f7;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.routing-panel .btn-route:hover {
+    background: rgba(79, 195, 247, 0.2);
+    border-color: rgba(79, 195, 247, 0.25);
+}
+
+.routing-panel .route-result {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    min-height: 40px;
+}
+
+.routing-panel .route-result .route-info {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 12px;
+}
+
+.routing-panel .route-result .route-found {
+    color: #34d399;
+    font-size: 13px;
+}
+
+.routing-panel .route-result .route-distance {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Info panel */
+.info-panel {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    background: rgba(20, 20, 40, 0.88);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    padding: 18px 22px;
+    min-width: 260px;
+    max-width: 320px;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.info-panel.visible {
+    display: block;
+    animation: slideUp 0.25s ease;
+}
+
+.info-panel .close-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.info-panel .close-btn:hover {
+    color: #fff;
+}
+
+.info-panel .element-name {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.info-panel .element-type {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.info-panel .attr {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.info-panel .attr .key {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.info-panel .attr .value {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+}
+
+.info-panel .risk-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.info-panel .risk-badge.low {
+    background: rgba(76, 175, 80, 0.2);
+    color: #81c784;
+}
+
+.info-panel .risk-badge.medium {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffd54f;
+}
+
+.info-panel .risk-badge.high {
+    background: rgba(244, 67, 54, 0.2);
+    color: #ef9a9a;
+}
+
+/* Status bar */
+.status {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 100;
+    color: rgba(255, 255, 255, 0.15);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    pointer-events: none;
+}
+
+.status span {
+    margin-right: 16px;
+}
+
+.status i {
+    margin-right: 4px;
+    color: rgba(255, 255, 255, 0.08);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .header {
+        top: 12px;
+        padding: 8px 16px;
+        width: 90%;
+    }
+    .header h1 {
+        font-size: 13px;
+    }
+    .controls {
+        top: 70px;
+        left: 10px;
+    }
+    .controls .btn {
+        min-width: 44px;
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+    .controls .btn span {
+        display: none;
+    }
+    .routing-panel {
+        bottom: 80px;
+        right: 10px;
+        left: 10px;
+        min-width: unset;
+        max-width: unset;
+    }
+    .info-panel {
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+        min-width: unset;
+        max-width: unset;
+    }
+    .status {
+        display: none;
+    }
+}

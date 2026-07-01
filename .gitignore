@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+.venv/
+
+# Data files (large)
+*.ifc
+*.3dtiles
+*.b3dm
+*.glb
+*.gltf
+
+# Node
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

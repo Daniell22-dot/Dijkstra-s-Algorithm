@@ -1,0 +1,101 @@
+function findPath(startName, endName) {
+    const nodes = window.networkData.nodes;
+    const edges = window.networkData.edges;
+
+    // Find node IDs by name
+    const startNode = nodes.find(n => n.name.toLowerCase() === startName.toLowerCase());
+    const endNode = nodes.find(n => n.name.toLowerCase() === endName.toLowerCase());
+
+    if (!startNode) {
+        return { error: `Start location "${startName}" not found` };
+    }
+    if (!endNode) {
+        return { error: `End location "${endName}" not found` };
+    }
+
+    // Build adjacency list
+    const adj = {};
+    nodes.forEach(n => { adj[n.id] = []; });
+    edges.forEach(e => {
+        adj[e.from].push({ to: e.to, weight: e.weight });
+        adj[e.to].push({ to: e.from, weight: e.weight });
+    });
+
+    // Dijkstra's algorithm
+    const distances = {};
+    const previous = {};
+    const unvisited = new Set();
+
+    nodes.forEach(n => {
+        distances[n.id] = Infinity;
+        previous[n.id] = null;
+        unvisited.add(n.id);
+    });
+    distances[startNode.id] = 0;
+
+    while (unvisited.size > 0) {
+        // Find node with minimum distance
+        let currentId = null;
+        let minDist = Infinity;
+        unvisited.forEach(id => {
+            if (distances[id] < minDist) {
+                minDist = distances[id];
+                currentId = id;
+            }
+        });
+
+        if (currentId === null || minDist === Infinity) break;
+
+        unvisited.delete(currentId);
+
+        if (currentId === endNode.id) break;
+
+        // Update neighbors
+        adj[currentId].forEach(neighbor => {
+            if (unvisited.has(neighbor.to)) {
+                const alt = distances[currentId] + neighbor.weight;
+                if (alt < distances[neighbor.to]) {
+                    distances[neighbor.to] = alt;
+                    previous[neighbor.to] = currentId;
+                }
+            }
+        });
+    }
+
+    // Reconstruct path
+    const pathIds = [];
+    let current = endNode.id;
+    while (current !== null && current !== startNode.id) {
+        pathIds.unshift(current);
+        current = previous[current];
+    }
+    pathIds.unshift(startNode.id);
+
+    // Check if path is valid
+    if (distances[endNode.id] === Infinity) {
+        return null;
+    }
+
+    // Convert IDs to names
+    const pathNames = pathIds.map(id => {
+        const node = nodes.find(n => n.id === id);
+        return node ? node.name : id;
+    });
+
+    // Get node details for coordinates
+    const pathNodes = pathIds.map(id => nodes.find(n => n.id === id)).filter(n => n);
+
+    return {
+        path: pathNames,
+        distance: distances[endNode.id],
+        steps: pathIds.length - 1,
+        nodes: pathNodes,
+        start: startNode.name,
+        end: endNode.name,
+    };
+}
+
+// Store function globally
+window.findPath = findPath;
+
+console.log(' Routing engine ready');
