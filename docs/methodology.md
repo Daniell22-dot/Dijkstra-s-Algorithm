@@ -21,14 +21,14 @@ The engineering workflow transitions sequentially through four major development
 The spatial graph routing engine uses Dijkstra's Shortest Path Algorithm to solve indoor navigational queries between distant rooms across multiple floors.
 
 ### Mathematical Logic Flow
-To evaluate a route from starting point node ($A$) to ending point node ($B$), the network engine tracks a graph $G = (V, E)$, where $V$ is the set of topological room/door intersections (nodes) and $E$ is the set of physical walkways (edges).
+To evaluate a route from starting point node ( A ) to ending point node ( B ), the network engine tracks a graph  G = (V, E) , where  V  is the set of topological room/door intersections (nodes) and  E  is the set of physical walkways (edges).
 
-1. **Graph Weighting:** Every edge in the table is assigned a structural cost cost weight ($w$), representing the exact physical distance in meters between its terminal nodes.
-2. **Distance Initialization:** The algorithm marks the path length distance value to the origin node ($A$) as $0$, while pre-setting all other network graph node distances to infinity ($\infty$).
-3. **Iterative Node Relaxation:** The pathfinding process visits the closest unvisited neighboring node ($u$) and evaluates whether moving through $u$ offers a faster path to an adjacent node ($v$). It updates values continually following the path relaxation formula:
+1. **Graph Weighting:** Every edge in the table is assigned a structural cost cost weight ( w ), representing the exact physical distance in meters between its terminal nodes.
+2. **Distance Initialization:** The algorithm marks the path length distance value to the origin node ( A ) as  0 , while pre-setting all other network graph node distances to infinity ( \infty ).
+3. **Iterative Node Relaxation:** The pathfinding process visits the closest unvisited neighboring node ( u ) and evaluates whether moving through  u  offers a faster path to an adjacent node ( v ). It updates values continually following the path relaxation formula:
 
 d(v) = min( d(v), d(u) + w(u, v) )
 
-*Where $d(u)$ represents the accumulated distance to node $u$, and $w(u,v)$ is the length weight of the edge line connecting node $u$ to node $v$.*
-4. **Coordinate Array Outputs:** Once the destination room vertex ($B$) is marked resolved, the algorithm extracts the exact chain of traversed database nodes and passes a coordinate string array back to the web application frontend client.
+*Where* d(u) represents the accumulated distance to node u, and w(u,v) is the length weight of the edge line connecting node u to node v.*
+4. **Coordinate Array Outputs:** Once the destination room vertex (B) is marked resolved, the algorithm extracts the exact chain of traversed database nodes and passes a coordinate string array back to the web application frontend client.
 5. **3D Line Vector Path Generation:** CesiumJS maps this array index dynamically, drawing a bright navigation polyline overlay cutting safely across open corridors and up vertical stairwells on the 3D visual campus environment.
