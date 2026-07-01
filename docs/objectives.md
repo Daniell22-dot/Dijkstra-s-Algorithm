@@ -1,4 +1,3 @@
-```markdown
 # Project Objectives
 
 ## Development of a Web-Based 3D Web-GIS Campus Digital Twin for Smart Facility Management Using ArchiCAD, Python, and CesiumJS
