@@ -76,26 +76,34 @@ function findPath(startName, endName) {
         return null;
     }
 
-    // Convert IDs to names
-    const pathNames = pathIds.map(id => {
-        const node = nodes.find(n => n.id === id);
-        return node ? node.name : id;
-    });
-
-    // Get node details for coordinates
+    // Convert IDs to names with 3D coordinates
     const pathNodes = pathIds.map(id => nodes.find(n => n.id === id)).filter(n => n);
+
+    const pathNames = pathNodes.map(n => n.name);
+    const pathDetails = pathNodes.map(n => ({
+        id: n.id,
+        name: n.name,
+        floor: n.floor,
+        floor_elevation: n.floor_elevation || 0,
+        x: n.x || 0,
+        y: n.y || 0,
+        z: n.z || 0,
+        type: n.type || 'Room'
+    }));
 
     return {
         path: pathNames,
+        path_details: pathDetails,
         distance: distances[endNode.id],
         steps: pathIds.length - 1,
         nodes: pathNodes,
         start: startNode.name,
         end: endNode.name,
+        floors: [...new Set(pathNodes.map(n => n.floor))]
     };
 }
 
 // Store function globally
 window.findPath = findPath;
 
-console.log(' Routing engine ready');
+console.log('3D Routing engine ready (Dijkstra)');

@@ -227,14 +227,3 @@ The platform relies on highly structured database relations to enable efficient 
 | `geom_line` | `GEOMETRY` | SRID 4326 (LineString, Z-Aware) | Visual line string defining physical walkable paths |
 
 ---
-
-## 📜 Academic Reference & Citation
-
-If using this project for university research or publishing technical findings based on this architecture, please use the following citation format:
-
-```text
-Surname, F. (2026). Development of a Web-Based 3D Web-GIS Campus Digital Twin for Smart Facility Management 
-Using ArchiCAD, Python, and CesiumJS. Institute of Geomatics, GIS and Remote Sensing (IGGRS). 
-Dedan Kimathi University of Technology.
-
-```

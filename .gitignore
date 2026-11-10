@@ -13,6 +13,11 @@ env/
 *.b3dm
 *.glb
 *.gltf
+*.skp
+*.obj
+*.pln
+*.bpn
+*.dwg
 
 # Node
 node_modules/

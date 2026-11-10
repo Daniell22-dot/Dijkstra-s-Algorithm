@@ -1,0 +1,73 @@
+{
+  "ifc_file": "DANIEL.ifc",
+  "total_elements": 1134,
+  "element_types": {
+    "IfcColumn": 282,
+    "IfcWall": 267,
+    "IfcWindow": 191,
+    "IfcBeam": 190,
+    "IfcDoor": 153,
+    "IfcSlab": 21,
+    "IfcRailing": 15,
+    "IfcRoof": 9,
+    "IfcStair": 6
+  },
+  "entity_schema": {
+    "IfcBuildingElement": {
+      "attributes": [
+        "GlobalId",
+        "OwnerHistory",
+        "Name",
+        "ObjectType",
+        "Description",
+        "",
+        "Tag",
+        """PredefinedType""",
+        """ObjectPlacement""",
+        """Representation"""
+      ],
+      "example_values": {
+        "IfcColumn": ["282G1I1364567KJD2Q3R8", "IFC4x3.dev", "Column C1", "COL", "Column description", "TAG-COL", "POINTS", " COLUMN", "IfcLocalPlacement"],
+        "IfcDoor": ["2F6jaschj0mPI0O7WD6s0d", "IFC4x3.dev", "DOO - 001", "DR", "Door description", "TAG-DR", "DOOR", "IfcLocalPlacement"],
+        "IfcWindow": ["0aWe4mwjrDvPum$09t7nnp", "IFC4x3.dev", "WD - 009", "WR", "Window description", "TAG-WR", "WINDOW", "IfcLocalPlacement"],
+        "IfcBeam": ["3BJcIcBLr72wmFch59XEFS", "IFC4x3.dev", "BMR - 074", "BEAM", "Beam description", "TAG-BEAM", "BEAM", "IfcLocalPlacement"]
+      }
+    },
+    "IfcColumn": {
+      "additional_attributes": [
+        "PredefinedType",
+        "CrossSectionArea",
+        "OverallHeight",
+        "OverallWidth"
+      ]
+    },
+    "IfcDoor": {
+      "additional_attributes": [
+        "PredefinedType",
+        "DoorType",
+        "OperationMode",
+        "TrimmedCurve"
+      ]
+    },
+    "IfcWindow": {
+      "additional_attributes": [
+        "PredefinedType",
+        "WindowType",
+        "FrameThickness",
+        "OverallHeight",
+        "OverallWidth"
+      ]
+    },
+    "IfcBeam": {
+      "additional_attributes": [
+        "PredefinedType",
+        "StartDirection",
+        "EndDirection",
+        "StartPoint",
+        "EndPoint"
+      ]
+    }
+  },
+  "export_format": "The IFC elements can be exported to CSV/JSON for import into the PostgreSQL database using the data_importer module. The schema maps IFC entity types to database tables as follows:\n\n- IfcDoor -> doors table (id, name, floor, width, height, material, status)\n- IfcWindow -> windows table (id, name, floor, width, height, material, status)\n- IfcBeam, IfcColumn, IfcWall, IfcSlab, IfcRoof, IfcStair -> can be mapped to rooms or custom tables\n\nSample CSV exports are provided below.",
+  "extraction_method": "Used ifcopenshell to parse IFC file, extract element types, GlobalId, Name, ObjectType, PredefinedType, and basic attributes. Geometry (coordinates) extracted from ObjectPlacement and Representation."
+}

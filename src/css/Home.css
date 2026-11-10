@@ -1,0 +1,1610 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #6c757d;
+    line-height: 1.6666;
+    font-weight: 400;
+}
+
+.HomePageMainContainer {
+    width: 100%;
+    overflow: hidden;
+}
+
+.HomeContainerDiv {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 3;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}
+
+.HomeIntroDiv {
+    width: 100%;
+    min-width: 1024px;
+    max-width: 1400px;
+    height: auto;
+    margin-top: 110px;
+}
+
+.HomeIntroContentDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.HomeIntroContents {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin-top: 0px;
+}
+
+.HomeSmartFmContent2 {
+    margin-top: 15px;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: #595959;
+}
+
+.typewriterParentDiv {
+    margin-top: 6px;
+    height: 60px;
+}
+
+.h1Style {
+    font-size: 1.8rem;
+    font-weight: 500;
+    animation: blink-caret 0.75s step-end infinite;
+    color: #595959;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(202deg, #41B152, #3973BC 63%, #41B152);
+    background-clip: text;
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: black;
+    }
+}
+
+.HomeSmartFmContent3 {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #595959;
+}
+
+.nanoSimpleLogoMainDiv {
+    margin-top: 10px;
+}
+
+.HomeBtnSection {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.DemoSection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 24px 12px 22px;
+    cursor: pointer;
+    text-decoration: none !important;
+    border-radius: 40px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.DemoSection:hover {
+    background-color: #f1f1f1;
+}
+
+.PlayBtn {
+    font-size: 24px;
+    color: #555;
+    cursor: pointer;
+}
+
+.RequestTxt {
+    color: #555;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.HomePageIntroImangDiv {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.HomeContentsMainContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.HomeContentsSubContainer {
+    width: 100%;
+    min-width: 1024px;
+    max-width: 1400px;
+    height: auto;
+    margin-top: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/* Trust By CSS */
+
+.TrustedByParentDiv {
+    width: 100%;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.TrustHeadingDiv {
+    width: 100%;
+    height: auto;
+    padding-bottom: 30px;
+}
+
+.SectionHeadingText {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #595959;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.client-section {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    background-color: #fff;
+    padding: 25px 0px 20px 0px;
+}
+
+.client-slider {
+    display: flex;
+    align-items: center;
+    width: max-content;
+}
+
+.client-slide {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    animation: scroll 160s linear infinite;
+}
+
+.client-slide img {
+    margin: 0 15px;
+    max-height: 90px;
+    max-width: 160px;
+    object-fit: contain;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.ImageA002Style {
+    width: 65px !important;
+    height: 65px !important;
+}
+
+.Image1Style {
+    height: 60px !important;
+}
+
+.Image2Style {
+    height: 90px !important;
+}
+
+.Image3Style {
+    height: 110px !important;
+}
+
+.Image11Style {
+    width: 140px !important;
+    height: 90px !important;
+}
+
+.ImageHt65PX {
+    height: 65px !important;
+}
+
+.ImageHt75PX {
+    height: 75px !important;
+}
+
+.ImageHt85PX {
+    height: 85px !important;
+}
+
+.ImageHt100PX {
+    height: 100px !important;
+}
+
+
+/* Data Driven Section */
+
+.DataDrivenHeadingDiv {
+    width: 100%;
+    height: auto;
+    padding-top: 60px;
+    padding-bottom: 15px;
+}
+
+.DataDrivenConParentDiv {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    padding: 20px 50px;
+}
+
+.DDContentDiv1 {
+    width: 50%;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.DDContentDiv2 {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.DataDrivenImg {
+    width: 540px;
+}
+
+.DataDrivenMainDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-top: 10px;
+}
+
+.DDContent1 {
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Rubik', sans-serif;
+    color: #424547;
+    font-weight: 500;
+}
+
+.DDContent2 {
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Rubik', sans-serif;
+    color: #6c757d;
+    font-weight: 400;
+}
+
+.DDContent3 {
+    font-size: 1rem;
+    display: flex;
+    text-align: justify;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 5px;
+    font-family: 'Rubik', sans-serif;
+    color: #6c757d;
+    line-height: 2;
+    letter-spacing: 0.2px;
+    font-weight: 400;
+}
+
+/* All-in-One Section */
+
+.AllinOneHeadingDiv {
+    width: 100%;
+    height: auto;
+    padding-top: 60px;
+    padding-bottom: 15px;
+}
+
+
+.HeadingSubContentCenter {
+    display: flex;
+    justify-content: center;
+}
+
+.SectionHeadingContentText {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #595959;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    margin-top: 15px;
+}
+
+
+.SectionHeadingContentText75 {
+    width: 75%;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #595959;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    margin-top: 15px;
+}
+
+.CenterImgMainDiv {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.CenterImgSubDiv {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0px;
+}
+
+
+.AboContentMainDiv {
+    width: 100%;
+    height: auto;
+}
+
+.AboContentSubDiv {
+    width: 100%;
+    height: auto;
+    padding: 10px 50px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.AboContAddtionalSubDiv {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.AboutSmartFmContentDiv1 {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.SuBContentHeading {
+    color: #555d69;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: 'Rubik', sans-serif;
+    margin-top: 8px;
+}
+
+.SuBContentText {
+    font-size: 1rem;
+    margin-top: 3px;
+    font-family: 'Rubik', sans-serif;
+    color: #6c757d;
+    line-height: 1.6666;
+    font-weight: 400;
+}
+
+.SuBContentTextAllInOne {
+    font-size: 1rem;
+    margin-top: 3px;
+    font-family: 'Rubik', sans-serif;
+    color: #6c757d;
+    line-height: 1.6666;
+    font-weight: 400;
+    text-align: justify !important;
+}
+
+
+/* Achievement Section */
+
+.AchievementMainContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    margin-bottom: 30px;
+    background-color: #3973BC;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.AchievementDivScroll {
+    background-attachment: fixed !important;
+}
+
+.AchievementDivScroll {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+
+.AchievementSubContainer {
+    width: 100%;
+    min-width: 1024px;
+    max-width: 1400px;
+    height: auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.AchieveContentParent {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    padding: 15px 0px;
+}
+
+.AchieveParentSubDiv {
+    width: 25%;
+}
+
+
+.AchieveCountsStyle {
+    font-size: 2.6rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.AchievementText {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #fff;
+}
+
+/* With SMART FM */
+
+.WithSmartFMmainContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.WithSmartFMsubContainer {
+    width: 100%;
+    min-width: 1024px;
+    max-width: 1400px;
+    height: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.WithSmartFMParentDiv {
+    width: 100%;
+}
+
+
+.WithSmartFMHeadingDiv {
+    width: 100%;
+    height: auto;
+    padding: 50px 0px 30px 0px;
+}
+
+.WithSmartFMDataDiv {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding: 30px 10px 50px 10px;
+    gap: 25px;
+}
+
+.WithSmartFMCardsDiv {
+    width: 100%;
+    height: auto;
+    padding: 30px 10px 30px 10px;
+    border-radius: 16px;
+    background-image: linear-gradient(180deg, rgba(244, 244, 249, .8) 90%, rgba(244, 244, 249, .05) 100%);
+    cursor: pointer;
+    text-align: center;
+}
+
+.WithSmartFMDataOne {
+    color: #555d69;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding-top: 25px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.WithSmartFMDataTwo {
+    text-align: center;
+    font-size: 1rem;
+    padding-top: 12px;
+    font-family: 'Rubik', sans-serif;
+    color: #6c757d;
+    line-height: 1.6666;
+    font-weight: 400;
+}
+
+/* Choose between Subscription section */
+
+.SubscriptionParentDiv {
+    width: 100%;
+    padding: 10px 0px;
+    border-radius: 30px;
+    margin-top: 60px;
+}
+
+.SubscriptionHeadingDiv {
+    width: 100%;
+    height: auto;
+    padding-bottom: 30px;
+}
+
+.SubscriptionConParentDiv {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    padding: 20px 50px 20px 50px;
+}
+
+.SubscriptionContentDiv1 {
+    width: 50%;
+    padding: 0px 10px 0px 100px;
+    display: flex;
+    align-items: center;
+}
+
+.SubscriptionContentDiv2 {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SubscriptionContentDiv3 {
+    display: none;
+}
+
+.SubscriptionContentDiv4 {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SmartCloudImageStyle {
+    width: 220px;
+    height: 54px;
+    margin-bottom: 25px;
+}
+
+.MostText {
+    color: #636363;
+    background: #efefef;
+    width: 30%;
+    height: 36px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 16px;
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Just a Tool Section */
+
+.JustToolParentDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 60px 0px;
+    margin-top: 80px;
+    background: linear-gradient(to left, #ecf4ff, #ecfffc);
+}
+
+.ReadyToExperienceDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.ReadyToExperienceText {
+    width: 80%;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #555d69;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+}
+
+/* Integrated Solution section */
+
+.IntegratedParentDivForHome {
+    width: 100%;
+    border-radius: 30px;
+    margin-top: 80px;
+}
+
+.IntegratedHeadingDiv {
+    width: 100%;
+    height: auto;
+    padding-bottom: 30px;
+}
+
+.IntegratedImage {
+    width: 900px;
+}
+
+/* Industry */
+
+.IndustryConMainDiv {
+    width: 100%;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.IndustryConMainDiv2 {
+    width: 100%;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.MeetingContentSubDiv {
+    width: 100%;
+    gap: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.Industrycards {
+    width: 30%;
+    min-height: 170px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    text-decoration: none !important;
+}
+
+.Industrycards:hover {
+    transform: scale(1.05);
+}
+
+.MeetingCardLogoDiv1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IndustryCardPara {
+    color: #595959;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 400;
+    padding-top: 7px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.IndustryLogo1 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #F4EFFC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IndustryLogo2 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #FFEFF0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IndustryLogo3 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #e8fcff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IndustryLogo4 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #FFF9F0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IndustryLogo5 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #EBFAF2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IndustryLogo6 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #f0e5e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IndustryLogo7 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #FFF3EE;
+    display: flex;
+    padding-left: 12px;
+    align-items: center;
+}
+
+.IndustryLogo8 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #e9ecef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IndustryLogo9 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #ffe6ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IndustryLogo10 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #dcfff7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IndustryLogo11 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #fff8e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IndustryLogo12 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #fff2ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IndustryLogo13 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #ffe9eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IndustryLogo14 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #ffeaee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IndustryLogo15 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #d3dbff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IndustryLogo16 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #d4e5d4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#WhatsAppTop {
+    width: 45px;
+    height: 45px;
+    position: fixed;
+    bottom: 110px;
+    right: 25px;
+    border-radius: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 48%;
+    background: #3EAA51;
+    transition: all 400ms ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.WhatsAppLinkColor {
+    color: white;
+    font-size: 26px;
+}
+
+#ui-to-top {
+    width: 45px;
+    height: 45px;
+    position: fixed;
+    bottom: 35px;
+    right: 25px;
+    border-radius: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 48%;
+    background: linear-gradient(to right, #00aafc, #00caad);
+    transition: all 400ms ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.ArrowColor {
+    color: white;
+    font-size: 20px;
+}
+
+.LandingImage {
+    width: 470px;
+}
+
+.WithSmartFmLogosImg {
+    width: 210px;
+}
+
+.SubscriptionImage1 {
+    width: 415px;
+}
+
+.SubscriptionImage2 {
+    width: 500px;
+}
+
+.NotificationImage {
+    width: 850px;
+}
+
+.DownloadBrochureBtn {
+    --clr-font-main: hsla(0 0% 20% / 100);
+    --btn-bg-1: hsla(194 100% 69% / 1);
+    --btn-bg-2: hsla(217 100% 56% / 1);
+    --btn-bg-color: hsla(360 100% 100% / 1);
+    cursor: pointer;
+    padding: 0px 26px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.8s;
+    background-size: 280% auto;
+    background-image: linear-gradient(325deg, var(--btn-bg-2) 0%, var(--btn-bg-1) 55%, var(--btn-bg-2) 90%);
+    border: none;
+    border-radius: 40px;
+    box-shadow:
+        0px 0px 20px rgba(71, 184, 255, 0.3),
+        0px 5px 5px -1px rgba(58, 125, 233, 0.3),
+        inset 4px 4px 8px rgba(175, 230, 255, 0.3),
+        inset -4px -4px 8px rgba(19, 95, 216, 0.3);
+    text-decoration: none !important;
+}
+
+.DownloadBrochureText {
+    font-size: 0.95rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.DownloadBrochureBtn:hover {
+    background-position: right top;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .DownloadBrochureBtn {
+        transition: linear;
+    }
+}
+
+.HomeProductBtnSec {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 24px;
+    margin-top: 60px;
+}
+
+.HomeProductsCardParent {
+    width: 48%;
+    height: 100px;
+    display: flex;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+
+.HomeProLogoDiv1 {
+    width: 100px;
+}
+
+.HomeProLogoDiv2 {
+    width: 90px;
+}
+
+.HomeProductImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px 0px 0px 6px;
+}
+
+/* From Uiverse.io by SouravBandyopadhyay */
+.card-title {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: normal;
+    font-weight: 600;
+}
+
+.small-desc {
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #333;
+}
+
+.go-corner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    background: linear-gradient(135deg, #DDBF49, #e6c74a);
+    border-radius: 0 4px 0 32px;
+}
+
+.go-arrow {
+    margin-top: -4px;
+    margin-right: -4px;
+    color: white;
+    font-family: courier, sans;
+}
+
+.HomeProConDiv1 {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: start;
+    position: relative;
+    background-color: #fff;
+    width: calc(100% - 100px);
+    border-radius: 0px 6px 6px 0px;
+    padding: 10px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.HomeProConDiv1:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: linear-gradient(135deg, #DDBF49, #e6c74a);
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.35s ease-out;
+}
+
+.HomeProConDiv1:hover:before {
+    transform: scale(28);
+}
+
+.go-corner2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    background: linear-gradient(135deg, #333, #000);
+    border-radius: 0 4px 0 32px;
+}
+
+.HomeProConDiv2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: start;
+    position: relative;
+    background-color: #fff;
+    width: calc(100% - 90px);
+    border-radius: 0px 6px 6px 0px;
+    padding: 10px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.HomeProConDiv2:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: linear-gradient(135deg, #333, #000);
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.35s ease-out;
+}
+
+.HomeProConDiv2:hover:before {
+    transform: scale(28);
+}
+
+.HomeProConDiv2:hover .small-desc {
+    transition: all 0.5s ease-out;
+    color: #fff;
+}
+
+.HomeProConDiv2:hover .card-title {
+    transition: all 0.5s ease-out;
+    color: #fff;
+}
+
+.NewStyForWidth {
+    width: 94%;
+}
+
+
+/* ************************* Media Query Section *************************** */
+
+/* For screens smaller than 768px (phones) */
+@media only screen and (max-width: 767px) {
+
+    .NewStyForWidth {
+        width: 100%;
+    }
+
+    .card-title {
+        font-size: 0.95rem;
+    }
+
+    .small-desc {
+        font-size: 0.85rem;
+    }
+
+    .HomeProConDiv1 {
+        gap: 4px;
+    }
+
+    .HomeProConDiv2 {
+        gap: 6px;
+    }
+
+    .DownloadBrochureBtn{
+        width: 80%;
+    }
+
+    .HomeProductBtnSec {
+        flex-direction: column;
+        gap: 26px;
+        margin-top: 40px;
+    }
+
+    .HomeProductsCardParent {
+        width: 100%;
+    }
+
+    .HomeContainerDiv {
+        width: 100%;
+        height: auto;
+    }
+
+    .HomeIntroDiv {
+        width: 100%;
+        min-width: 320px;
+        /* max-width: 360px; */
+        margin-top: 70px;
+        padding: 0px 20px;
+    }
+
+    .HomeIntroContentDiv {
+        width: 100%;
+        display: block;
+    }
+
+    .HomeSmartFmContent2 {
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: #595959;
+        margin-top: 10px;
+    }
+
+    .HomeIntroContents {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .typewriterParentDiv {
+        margin-top: 6px;
+        height: 105px;
+    }
+
+    .h1Style {
+        font-size: 1.5rem;
+    }
+
+    .HomeSmartFmContent3 {
+        margin-top: 16px;
+        font-size: 1.1rem;
+    }
+
+    .HomeBtnSection {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .DemoSection {
+        width: 220px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 22px;
+    }
+
+    .HomePageIntroImangDiv {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .HomeContentsSubContainer {
+        min-width: 320px;
+        padding: 0px 20px;
+    }
+
+    .LandingImage {
+        /* width: 300px; */
+        width: 100%;
+    }
+
+    .TrustedByParentDiv {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .client-slide img {
+        margin: 0 8px;
+        max-height: 70px;
+        max-width: 140px;
+    }
+
+    .client-section {
+        padding: 0px;
+    }
+
+    .SectionHeadingText {
+        font-size: 1.2rem;
+    }
+
+    .DataDrivenMainDiv {
+        gap: 8px;
+    }
+
+    .DataDrivenConParentDiv {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0px;
+    }
+
+    .DDContentDiv2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+    }
+
+    .DDContentDiv1 {
+        width: 100%;
+        padding: 0px;
+        display: flex;
+        align-items: flex-start;
+    }
+
+
+    .DDContent1 {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .DDContent2 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .DDContent3 {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .SectionHeadingContentText75 {
+        width: 100%;
+        font-size: 0.95rem;
+        margin-top: 8px;
+    }
+
+    .AboContentSubDiv {
+        width: 100%;
+        height: auto;
+        padding: 0px !important;
+        display: block;
+    }
+
+    .AboContAddtionalSubDiv {
+        width: 100%;
+        height: auto;
+        display: block;
+        padding: 0px !important;
+    }
+
+    .AboutSmartFmContentDiv1 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 15px;
+    }
+
+    .SuBContentHeading {
+        font-size: 1rem;
+        text-align: center;
+        margin-top: 0px;
+    }
+
+    .SuBContentText {
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .SuBContentTextAllInOne {
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+
+    .AchievementSubContainer {
+        width: 100%;
+        min-width: 320px;
+        max-width: 360px;
+        height: auto;
+        padding: 40px 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .AchieveContentParent {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+        gap: 30px;
+    }
+
+    .AchieveParentSubDiv {
+        width: 100%;
+        text-align: center;
+    }
+
+    .AchieveCountsStyle {
+        font-size: 2rem;
+    }
+
+    .AchievementText {
+        font-size: 1.2rem;
+    }
+
+    .WithSmartFMDataDiv {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0px;
+        gap: 25px;
+    }
+
+
+    .WithSmartFMsubContainer {
+        width: 100%;
+        min-width: 320px;
+        max-width: 360px;
+        height: auto;
+        padding: 0px 15px;
+    }
+
+    .WithSmartFMDataOne {
+        font-size: 1rem;
+    }
+
+    .WithSmartFMDataTwo {
+        font-size: 0.9rem;
+    }
+
+    .SubscriptionConParentDiv {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        padding: 0px;
+    }
+
+    .SubscriptionContentDiv2 {
+        display: none;
+    }
+
+    .SubscriptionContentDiv3,
+    .SubscriptionContentDiv4 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0px 20px 0px;
+    }
+
+    .SubscriptionContentDiv1 {
+        width: 100%;
+        padding: 0px 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .MostText {
+        width: 50%;
+        font-size: 0.9rem;
+        margin: 12px 0px;
+    }
+
+    .SectionHeadingContentText {
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+
+    .JustToolParentDiv {
+        gap: 5px;
+        padding: 35px 23px;
+        margin-top: 60px;
+    }
+
+    .ReadyToExperienceText {
+        width: 100%;
+        font-size: 1.1rem;
+        color: #555d69;
+    }
+
+    .MeetingContentSubDiv {
+        width: 100%;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Industrycards {
+        width: 100%;
+        min-height: 140px;
+    }
+
+    .IndustryCardPara {
+        font-size: 0.9rem;
+        padding-top: 15px;
+    }
+
+    .IndustryConMainDiv {
+        padding: 10px 0px 0px 0px;
+    }
+
+    .IntegratedImage {
+        max-width: 320px;
+        width: 100%;
+    }
+
+    .NotificationImage {
+        width: 100%;
+    }
+
+    .SubscriptionImage1 {
+        width: 100%;
+    }
+
+    .SubscriptionImage2 {
+        width: 100%;
+        padding: 12px 0px;
+    }
+
+    .DataDrivenImg {
+        width: 100%;
+        height: auto;
+        padding: 12px 0px;
+    }
+
+    .AboutImage {
+        /* max-width: 320px; */
+        width: 100%;
+    }
+
+    .WithSmartFmLogosImg {
+        max-width: 150px;
+    }
+
+    .WithSmartFMCardsDiv {
+        padding: 30px 20px;
+    }
+
+    #ui-to-top {
+        display: none !important;
+    }
+
+    #WhatsAppTop {
+        display: none !important;
+    }
+
+    .SmartCloudImageStyle {
+        width: 190px;
+        height: 45px;
+        margin: 30px 0px 25px 0px;
+    }
+
+    .CloudParentDiv {
+        display: flex;
+        justify-content: center;
+    }
+
+    .CenterImgSubDiv {
+        margin: 4px 0px;
+    }
+
+    .CenterImgMainDiv {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .AchievementMainContainer {
+        margin-top: 40px;
+        margin-bottom: 0px;
+    }
+
+    .IntegratedParentDivForHome {
+        margin-top: 56px;
+    }
+}

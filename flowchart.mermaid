@@ -1,49 +1,46 @@
----
-id: 4096dc69-dba5-48ef-8abf-d7df177aeebf
----
 graph TD
-    %% Styling
-    classDef phase fill:#f9f9f9,stroke:#333,stroke-width:2px;
-    classDef step fill:#fff,stroke:#666,stroke-width:1px;
-    classDef obj fill:#e1f5fe,stroke:#03a9f4,stroke-width:1.5px;
-    
-    %% Data Acquisition & Modeling
-    subgraph P1 [3D Modeling & Data Preparation]
-        A[ArchiCAD 3D Building Models] --> B[Export to Interoperable Format <br> e.g., IFC / OBJ]
-        B --> C[Convert to 3D Tiles <br> via Python Tools / Cesium ion]
-    end
-    class P1 phase;
+    classDef process fill:#f9f9f9,stroke:#333,stroke-width:2px,font-family:Arial,font-size:14px;
+    classDef data fill:#e1f5fe,stroke:#01579b,stroke-width:2px,font-family:Arial,font-size:14px;
+    classDef db fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,font-family:Arial,font-size:14px;
+    classDef output fill:#fff3e0,stroke:#e65100,stroke-width:2px,font-family:Arial,font-size:14px;
 
-    %% Spatial Database Development
-    subgraph P2 [Database & Topology Setup]
-        D[Tabular/Attribute Data <br> Rooms, Doors, Windows] --> E[(Spatial Database <br> PostgreSQL/PostGIS or SQLite)]
-        F[Network Connectivity Data <br> Edges & Nodes] --> E
+    subgraph PHASE_1 [Data Acquisition & Preprocessing]
+        A1[ArchiCAD BIM Source Models]:::data --> A2[Georeferencing & Spatial Alignment<br/>UTM Zone 37S / EPSG:32737]:::process
+        A2 --> A3[Model Simplification & Filtering<br/>Removal of Non-Navigational Elements]:::process
+        A3 --> A4[Space Definition & Zone Bounding<br/>IfcSpace Integration]:::process
     end
-    class P2 phase;
 
-    %% Web-GIS System Integration
-    subgraph P3 [Frontend Development & Logic]
-        G[CesiumJS Web Platform] --> H[Load 3D Tiles Layout]
-        E --> I[Backend API <br> Python / Flask or FastAPI]
-        I --> G
-    end
-    class P3 phase;
-
-    %% Specific Objectives Mapping
-    C --> Obj1{{"Objective 1: <br> Web-Viewable 3D Format"}}:::obj
-    E --> Obj2{{"Objective 2: <br> Spatial Database Storage"}}:::obj
-    
-    subgraph P4 [Phase 4: Smart Application Features]
-        G --> J[Raycasting / Feature Picking]
-        J --> Obj3{{"Objective 3: <br> Click-Based Info Queries"}}:::obj
+    subgraph PHASE_2 [Dual-Pipeline Interoperability Transformation]
+        A4 --> B1[Export Dataset to ISO Standard<br/>Industry Foundation Classes - IFC4]:::process
         
-        I --> K[Routing Engine Algorithm <br> Dijkstra / A* via NetworkX]
-        K --> Obj4{{"Objective 4: <br> Indoor Shortest Path Routing"}}:::obj
+        %% Stream 1: Visualization Pipeline
+        B1 --> C1[3D Geometry Stream Extraction]:::process
+        C1 --> C2[IfcConvert CLI Utility<br/>IFC to glTF 2.0 Binary]:::process
+        C2 --> C3[Open-Source 3D Tiler<br/>Cesium ion / pg2b3dm]:::process
+        C3 --> C4[Hierarchical Batched 3D Tiles<br/>.b3dm & tileset.json Structure]:::data
+
+        %% Stream 2: Network Topology Pipeline
+        B1 --> D1[Interior Network Stream Extraction]:::process
+        D1 --> D2[Centerline Extraction & Door Intersection<br/>Corridors, Stairs, & Elevators]:::process
+        D2 --> D3[3D Topology Generation<br/>POINTZ & LINESTRINGZ Network]:::process
+        D3 --> D4[PostgreSQL / PostGIS Database Load<br/>indoor_nodes & indoor_edges Tables]:::db
     end
-    class P4 phase;
-    
-    %% Connections across subgraphs
-    Obj1 --> G
-    Obj2 --> I
-    Obj3 --> L[Interactive 3D Digital Twin Platform]
-    Obj4 --> L
+
+    subgraph PHASE_3 [Pathfinding Algorithmic Engine]
+        D4 --> E1[pgRouting Framework Integration<br/>Graph Topology Construction]:::process
+        E1 --> E2[Dijkstra Shortest-Path Computation<br/>Objective Cost Function: C = sum w e]:::process
+        E2 --> E3[PL/pgSQL Path Query Execution<br/>pgr_dijkstra Function Optimization]:::process
+    end
+
+    subgraph PHASE_4 [Web-GIS Frontend Integration & Visualization]
+        C4 --> F1[CesiumJS WebGL 3D Globe Engine<br/>Instantiation of 3D Tileset]:::process
+        E3 --> F2[Asynchronous REST API Integration<br/>JSON Path Coordinate Fetching]:::process
+        F1 --> F3[Dynamic 3D Route Rendering<br/>Cesium.PolylineGlow Over Multi-Floors]:::output
+        F2 --> F3
+    end
+
+    subgraph PHASE_5 [Evaluation & Performance Validation]
+        F3 --> G1[Metric 1: Interoperability Efficiency<br/>Data Size Reduction & Mesh Loss %]:::process
+        F3 --> G2[Metric 2: Query Latency<br/>pgr_dijkstra Execution Time in ms]:::process
+        F3 --> G3[Metric 3: Browser Frame Rate<br/>Client-Side Rendering Performance in FPS]:::process
+    end

@@ -157,7 +157,7 @@ class RoutingEngine:
                 type='corridor'
             )
         
-        print(f"✅ Created sample network: {self.graph.number_of_nodes()} nodes")
+        print(f" Created sample network: {self.graph.number_of_nodes()} nodes")
     
     def find_shortest_path(self, start_id, end_id):
         """
