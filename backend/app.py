@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import math
 import subprocess
@@ -19,7 +20,7 @@ app.register_blueprint(routing_bp)
 app.register_blueprint(buildings_bp)
 
 app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100MB limit
-UPLOAD_FOLDER = '../storage'
+UPLOAD_FOLDER = os.path.join(Config.PROJECT_ROOT, 'storage')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 REGISTRY_FILE = os.path.join(UPLOAD_FOLDER, 'campus_registry.json')
@@ -122,10 +123,12 @@ def handle_upload():
         
         try:
             subprocess.run([
-                'npx', 'ifc23dtiles',
-                '-i', ifc_path,
-                '-o', tileset_folder
-            ], check=True, capture_output=True, text=True, timeout=300)
+                sys.executable, '-c',
+                'import sys; from py3dtiles.convert import convert; '
+                'convert(sys.argv[1], sys.argv[2], overwrite=True, jobs=2)',
+                ifc_path,
+                tileset_folder
+            ], check=True, capture_output=True, text=True, timeout=900)
         except subprocess.TimeoutExpired:
             return jsonify({
                 'status': 'error',

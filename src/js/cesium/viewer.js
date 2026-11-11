@@ -64,7 +64,7 @@ async function loadBuildingWithMatrix(tilesetUrl, latitude, longitude, elevation
             elevation
         );
 
-        let matrix = Cesium.Transforms.eastNorthUpToFixedFrame(anchorCartesian);
+        let targetMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(anchorCartesian);
         if (northRotation !== 0) {
             const headingAngle = Cesium.Math.toRadians(-northRotation);
             const quaternion = Cesium.Quaternion.fromAxisAngle(
@@ -76,8 +76,24 @@ async function loadBuildingWithMatrix(tilesetUrl, latitude, longitude, elevation
                 rotationMatrix,
                 new Cesium.Cartesian3(0, 0, 0)
             );
-            matrix = Cesium.Matrix4.multiply(matrix, rotationMatrix4, matrix);
+            targetMatrix = Cesium.Matrix4.multiply(targetMatrix, rotationMatrix4, targetMatrix);
         }
+
+        const rootTransform = tileset.root && tileset.root.transform
+            ? tileset.root.transform
+            : Cesium.Matrix4.IDENTITY;
+        const inverseRootTransform = Cesium.Matrix4.inverse(
+            rootTransform,
+            new Cesium.Matrix4()
+        );
+        if (!Cesium.defined(inverseRootTransform)) {
+            throw new Error('Tileset root transform is not invertible');
+        }
+        const matrix = Cesium.Matrix4.multiply(
+            targetMatrix,
+            inverseRootTransform,
+            new Cesium.Matrix4()
+        );
 
         tileset.modelMatrix = matrix;
         window.buildingMatrix = matrix;

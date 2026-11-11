@@ -19,6 +19,9 @@ env/
 *.bpn
 *.dwg
 
+# Generated 3D Tiles
+src/models/3dtiles/
+
 # Generated frontend secrets (Cesium ion token)
 src/js/config.js
 
