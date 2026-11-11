@@ -12,7 +12,12 @@ import psycopg2.extras
 
 class DataImporter:
     """Import data from files to database"""
-    
+
+    @staticmethod
+    def _clean(df):
+        """Replace pandas NaN/NaT values with None for psycopg2."""
+        return df.astype(object).where(pd.notnull(df), None)
+
     def __init__(self):
         """Initialize the data importer"""
         self.bim_dir = Config.BIM_DATA_DIR
@@ -37,7 +42,7 @@ class DataImporter:
         # Try CSV first
         csv_path = os.path.join(self.bim_dir, 'rooms.csv')
         if os.path.exists(csv_path):
-            df = pd.read_csv(csv_path)
+            df = self._clean(pd.read_csv(csv_path))
             self._import_rooms_from_df(df)
             return
         
@@ -71,7 +76,7 @@ class DataImporter:
                 """
                 params = (
                     row.get('id'),
-                    row.get('name'),
+                    str(row.get('name')) if row.get('name') is not None else None,
                     row.get('floor'),
                     row.get('type'),
                     row.get('area'),
@@ -102,7 +107,7 @@ class DataImporter:
             print("   No doors data found")
             return
         
-        df = pd.read_csv(csv_path)
+        df = self._clean(pd.read_csv(csv_path))
         db.execute_query("TRUNCATE doors CASCADE")
         
         for _, row in df.iterrows():
@@ -133,7 +138,7 @@ class DataImporter:
             print("    No windows data found")
             return
         
-        df = pd.read_csv(csv_path)
+        df = self._clean(pd.read_csv(csv_path))
         db.execute_query("TRUNCATE windows CASCADE")
         
         for _, row in df.iterrows():
@@ -164,7 +169,7 @@ class DataImporter:
             print("    No floors data found")
             return
         
-        df = pd.read_csv(csv_path)
+        df = self._clean(pd.read_csv(csv_path))
         db.execute_query("TRUNCATE floors CASCADE")
         
         for _, row in df.iterrows():

@@ -18,19 +18,22 @@ class Config:
     
     # Database settings
     DB_HOST = os.getenv('DB_HOST', 'localhost')
-    DB_PORT = os.getenv('DB_PORT', '5432')
-    DB_NAME = os.getenv('DB_NAME', 'dekut_campus')
+    DB_PORT = os.getenv('DB_PORT', '5433')
+    DB_NAME = os.getenv('DB_NAME', 'dijk')
     DB_USER = os.getenv('DB_USER', 'postgres')
-    DB_PASSWORD = os.getenv('DB_PASSWORD', 'password')
-    
-    # Database connection string
-    DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-    
-    # File paths
-    DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
+    DB_PASSWORD = os.getenv('DB_PASSWORD', 'postgres')
+
+    # Prefer a full DATABASE_URL (e.g. postgresql://user:pass@host:port/db)
+    DATABASE_URL = os.getenv('DATABASE_URL') or (
+        f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+    )
+
+    # File paths (extracted data lives under src/data)
+    PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    DATA_DIR = os.path.join(PROJECT_ROOT, 'src', 'data')
     BIM_DATA_DIR = os.path.join(DATA_DIR, 'bim')
     ROUTING_DATA_DIR = os.path.join(DATA_DIR, 'routing')
-    MODEL_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'src', 'models')
+    MODEL_DIR = os.path.join(PROJECT_ROOT, 'src', 'models')
     TILESET_DIR = os.path.join(MODEL_DIR, '3dtiles', 'tileset')
     
     # CORS settings

@@ -28,11 +28,7 @@ class Database:
         try:
             self._pool = psycopg2.pool.SimpleConnectionPool(
                 1, 20,
-                host=Config.DB_HOST,
-                port=Config.DB_PORT,
-                database=Config.DB_NAME,
-                user=Config.DB_USER,
-                password=Config.DB_PASSWORD
+                dsn=Config.DATABASE_URL
             )
             print(" Database connection pool created successfully")
         except Exception as e:
@@ -88,102 +84,112 @@ db = Database()
 
 
 def initialize_database():
-    """Create tables if they don't exist"""
-    
-    sql = """
-    -- Rooms table
-    CREATE TABLE IF NOT EXISTS rooms (
-        id VARCHAR(20) PRIMARY KEY,
-        name VARCHAR(100) NOT NULL,
-        floor VARCHAR(20) NOT NULL,
-        type VARCHAR(50),
-        area NUMERIC(10, 2),
-        capacity INTEGER,
-        equipment TEXT,
-        year_built INTEGER,
-        maintenance_status VARCHAR(20),
-        risk_level VARCHAR(20),
-        temperature NUMERIC(5, 2),
-        noise_db INTEGER,
-        lighting_lux INTEGER,
-        latitude NUMERIC(10, 7),
-        longitude NUMERIC(10, 7),
-        center_x NUMERIC(10, 2),
-        center_y NUMERIC(10, 2),
-        center_z NUMERIC(10, 2)
-    );
+    """Create tables if they don't exist.
 
-    -- Doors table
-    CREATE TABLE IF NOT EXISTS doors (
-        id VARCHAR(20) PRIMARY KEY,
-        name VARCHAR(100) NOT NULL,
-        floor VARCHAR(20) NOT NULL,
-        width NUMERIC(5, 2),
-        height NUMERIC(5, 2),
-        material VARCHAR(50),
-        status VARCHAR(20)
-    );
-
-    -- Windows table
-    CREATE TABLE IF NOT EXISTS windows (
-        id VARCHAR(20) PRIMARY KEY,
-        name VARCHAR(100) NOT NULL,
-        floor VARCHAR(20) NOT NULL,
-        width NUMERIC(5, 2),
-        height NUMERIC(5, 2),
-        material VARCHAR(50),
-        status VARCHAR(20)
-    );
-
-    -- Floors table
-    CREATE TABLE IF NOT EXISTS floors (
-        id VARCHAR(20) PRIMARY KEY,
-        name VARCHAR(100) NOT NULL,
-        level INTEGER NOT NULL,
-        area NUMERIC(10, 2),
-        material VARCHAR(50),
-        status VARCHAR(20)
-    );
-
-    -- Network nodes (for routing)
-    CREATE TABLE IF NOT EXISTS network_nodes (
-        id VARCHAR(20) PRIMARY KEY,
-        name VARCHAR(100) NOT NULL,
-        floor VARCHAR(20) NOT NULL,
-        x NUMERIC(10, 2),
-        y NUMERIC(10, 2),
-        z NUMERIC(10, 2),
-        node_type VARCHAR(20),
-        is_room BOOLEAN DEFAULT TRUE
-    );
-
-    -- Network edges (for routing)
-    CREATE TABLE IF NOT EXISTS network_edges (
-        id SERIAL PRIMARY KEY,
-        source VARCHAR(20) REFERENCES network_nodes(id),
-        target VARCHAR(20) REFERENCES network_nodes(id),
-        weight NUMERIC(10, 2),
-        floor VARCHAR(20),
-        edge_type VARCHAR(20)
-    );
-
-    -- Create indexes
-    CREATE INDEX IF NOT EXISTS idx_rooms_floor ON rooms(floor);
-    CREATE INDEX IF NOT EXISTS idx_doors_floor ON doors(floor);
-    CREATE INDEX IF NOT EXISTS idx_windows_floor ON windows(floor);
-    CREATE INDEX IF NOT EXISTS idx_network_nodes_floor ON network_nodes(floor);
-    
-    -- Enable pgRouting extension if available
-    CREATE EXTENSION IF NOT EXISTS postgis;
-    CREATE EXTENSION IF NOT EXISTS pgrouting;
+    IFC GlobalIds are 22 characters, so identifier columns must be at least
+    VARCHAR(64).  PostGIS/pgRouting are optional and are skipped when the
+    server does not have those extensions installed.
     """
-    
+
+    statements = [
+        """
+        CREATE TABLE IF NOT EXISTS rooms (
+            id VARCHAR(64) PRIMARY KEY,
+            name VARCHAR(100) NOT NULL,
+            floor VARCHAR(20) NOT NULL,
+            type VARCHAR(50),
+            area NUMERIC(10, 2),
+            capacity INTEGER,
+            equipment TEXT,
+            year_built INTEGER,
+            maintenance_status VARCHAR(20),
+            risk_level VARCHAR(20),
+            temperature NUMERIC(5, 2),
+            noise_db INTEGER,
+            lighting_lux INTEGER,
+            latitude NUMERIC(10, 7),
+            longitude NUMERIC(10, 7),
+            center_x NUMERIC(10, 3),
+            center_y NUMERIC(10, 3),
+            center_z NUMERIC(10, 3)
+        )
+        """,
+        """
+        CREATE TABLE IF NOT EXISTS doors (
+            id VARCHAR(64) PRIMARY KEY,
+            name VARCHAR(100) NOT NULL,
+            floor VARCHAR(20) NOT NULL,
+            width NUMERIC(8, 3),
+            height NUMERIC(8, 3),
+            material VARCHAR(50),
+            status VARCHAR(20)
+        )
+        """,
+        """
+        CREATE TABLE IF NOT EXISTS windows (
+            id VARCHAR(64) PRIMARY KEY,
+            name VARCHAR(100) NOT NULL,
+            floor VARCHAR(20) NOT NULL,
+            width NUMERIC(8, 3),
+            height NUMERIC(8, 3),
+            material VARCHAR(50),
+            status VARCHAR(20)
+        )
+        """,
+        """
+        CREATE TABLE IF NOT EXISTS floors (
+            id VARCHAR(64) PRIMARY KEY,
+            name VARCHAR(100) NOT NULL,
+            level INTEGER NOT NULL,
+            area NUMERIC(10, 2),
+            material VARCHAR(50),
+            status VARCHAR(20)
+        )
+        """,
+        """
+        CREATE TABLE IF NOT EXISTS network_nodes (
+            id VARCHAR(64) PRIMARY KEY,
+            name VARCHAR(100) NOT NULL,
+            floor VARCHAR(20) NOT NULL,
+            x NUMERIC(10, 3),
+            y NUMERIC(10, 3),
+            z NUMERIC(10, 3),
+            node_type VARCHAR(20),
+            is_room BOOLEAN DEFAULT TRUE
+        )
+        """,
+        """
+        CREATE TABLE IF NOT EXISTS network_edges (
+            id SERIAL PRIMARY KEY,
+            source VARCHAR(64) REFERENCES network_nodes(id),
+            target VARCHAR(64) REFERENCES network_nodes(id),
+            weight NUMERIC(10, 3),
+            floor VARCHAR(20),
+            edge_type VARCHAR(20)
+        )
+        """,
+        "CREATE INDEX IF NOT EXISTS idx_rooms_floor ON rooms(floor)",
+        "CREATE INDEX IF NOT EXISTS idx_doors_floor ON doors(floor)",
+        "CREATE INDEX IF NOT EXISTS idx_windows_floor ON windows(floor)",
+        "CREATE INDEX IF NOT EXISTS idx_network_nodes_floor ON network_nodes(floor)",
+        "CREATE INDEX IF NOT EXISTS idx_network_edges_source ON network_edges(source)",
+        "CREATE INDEX IF NOT EXISTS idx_network_edges_target ON network_edges(target)",
+    ]
+
     try:
-        db.execute_query(sql)
+        for statement in statements:
+            db.execute_query(statement)
         print(" Database tables created successfully")
     except Exception as e:
         print(f" Warning: {e}")
-        print("   Some tables may already exist or pgRouting may not be installed")
+        print("   Some tables may already exist")
+
+    # Optional spatial extensions; the app works without them.
+    for extension in ('postgis', 'pgrouting'):
+        try:
+            db.execute_query(f"CREATE EXTENSION IF NOT EXISTS {extension}")
+        except Exception:
+            print(f"   Note: optional extension '{extension}' is not available")
 
 
 if __name__ == "__main__":
