@@ -1,46 +1,46 @@
 graph TD
-    classDef process fill:#f9f9f9,stroke:#333,stroke-width:2px,font-family:Arial,font-size:14px;
-    classDef data fill:#e1f5fe,stroke:#01579b,stroke-width:2px,font-family:Arial,font-size:14px;
-    classDef db fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,font-family:Arial,font-size:14px;
-    classDef output fill:#fff3e0,stroke:#e65100,stroke-width:2px,font-family:Arial,font-size:14px;
-
-    subgraph PHASE_1 [Data Acquisition & Preprocessing]
-        A1[ArchiCAD BIM Source Models]:::data --> A2[Georeferencing & Spatial Alignment<br/>UTM Zone 37S / EPSG:32737]:::process
-        A2 --> A3[Model Simplification & Filtering<br/>Removal of Non-Navigational Elements]:::process
-        A3 --> A4[Space Definition & Zone Bounding<br/>IfcSpace Integration]:::process
+    %% Configured for a balanced, compact grid (square footprint) with large bold text and heavy borders
+    classDef process fill:#f8f9fa,stroke:#212529,stroke-width:3px,font-family:Arial,font-size:22px,color:#212529;
+    classDef data fill:#e3f2fd,stroke:#0d47a1,stroke-width:3px,font-family:Arial,font-size:22px,color:#0d47a1;
+    classDef db fill:#e8f5e9,stroke:#1b5e20,stroke-width:3px,font-family:Arial,font-size:22px,color:#1b5e20;
+    classDef output fill:#fff3e0,stroke:#e65100,stroke-width:3px,font-family:Arial,font-size:22px,color:#e65100;
+    
+    subgraph ROW_1 ["STAGE 1: PREPROCESSING & EXPORT"]
+        direction LR
+        A1["ArchiCAD BIM Models"]:::data --> A2["Georeferencing & Alignment<br/>UTM Zone 37S / EPSG:32737"]:::process
+        A2 --> A3["Export IFC4 Standard"]:::process
     end
 
-    subgraph PHASE_2 [Dual-Pipeline Interoperability Transformation]
-        A4 --> B1[Export Dataset to ISO Standard<br/>Industry Foundation Classes - IFC4]:::process
+    ROW_1 --> ROW_2
+
+    subgraph ROW_2 ["PARALLEL PIPELINE TRANSFORMATION"]
+        direction LR
         
-        %% Stream 1: Visualization Pipeline
-        B1 --> C1[3D Geometry Stream Extraction]:::process
-        C1 --> C2[IfcConvert CLI Utility<br/>IFC to glTF 2.0 Binary]:::process
-        C2 --> C3[Open-Source 3D Tiler<br/>Cesium ion / pg2b3dm]:::process
-        C3 --> C4[Hierarchical Batched 3D Tiles<br/>.b3dm & tileset.json Structure]:::data
+        subgraph STREAM_A ["3D Visualization Stream"]
+            direction TB
+            B1["IfcConvert CLI<br/>glTF 2.0 Binary"]:::process --> B2["3D Tiler<br/>Cesium ion / pg2b3dm"]:::process
+            B2 --> B3["Batched 3D Tiles<br/>b3dm & tileset.json"]:::data
+        end
 
-        %% Stream 2: Network Topology Pipeline
-        B1 --> D1[Interior Network Stream Extraction]:::process
-        D1 --> D2[Centerline Extraction & Door Intersection<br/>Corridors, Stairs, & Elevators]:::process
-        D2 --> D3[3D Topology Generation<br/>POINTZ & LINESTRINGZ Network]:::process
-        D3 --> D4[PostgreSQL / PostGIS Database Load<br/>indoor_nodes & indoor_edges Tables]:::db
+        subgraph STREAM_B ["Network Topology Stream"]
+            direction TB
+            C1["Centerline Extraction<br/>Corridors & Stairs"]:::process --> C2["3D Topology Generation<br/>POINTZ & LINESTRINGZ"]:::process
+            C2 --> C3["PostGIS Database Load<br/>nodes & edges Tables"]:::db
+        end
     end
 
-    subgraph PHASE_3 [Pathfinding Algorithmic Engine]
-        D4 --> E1[pgRouting Framework Integration<br/>Graph Topology Construction]:::process
-        E1 --> E2[Dijkstra Shortest-Path Computation<br/>Objective Cost Function: C = sum w e]:::process
-        E2 --> E3[PL/pgSQL Path Query Execution<br/>pgr_dijkstra Function Optimization]:::process
+    ROW_2 --> ROW_3
+
+    subgraph ROW_3 ["ROUTING & WEB-GIS RENDERING"]
+        direction LR
+        D1["pgRouting Framework<br/>Dijkstra Shortest-Path"]:::process --> D2["CesiumJS Web Engine<br/>Load 3D Tiles Scene"]:::process
+        D2 --> D3["Dynamic 3D Route Display<br/>PolylineGlow Rendering"]:::output
     end
 
-    subgraph PHASE_4 [Web-GIS Frontend Integration & Visualization]
-        C4 --> F1[CesiumJS WebGL 3D Globe Engine<br/>Instantiation of 3D Tileset]:::process
-        E3 --> F2[Asynchronous REST API Integration<br/>JSON Path Coordinate Fetching]:::process
-        F1 --> F3[Dynamic 3D Route Rendering<br/>Cesium.PolylineGlow Over Multi-Floors]:::output
-        F2 --> F3
-    end
+    ROW_3 --> ROW_4
 
-    subgraph PHASE_5 [Evaluation & Performance Validation]
-        F3 --> G1[Metric 1: Interoperability Efficiency<br/>Data Size Reduction & Mesh Loss %]:::process
-        F3 --> G2[Metric 2: Query Latency<br/>pgr_dijkstra Execution Time in ms]:::process
-        F3 --> G3[Metric 3: Browser Frame Rate<br/>Client-Side Rendering Performance in FPS]:::process
+    subgraph ROW_4 ["PERFORMANCE EVALUATION"]
+        direction LR
+        E1["Efficiency<br/>Data Size %"]:::process --> E2["Latency<br/>Query ms"]:::process
+        E2 --> E3["Frame Rate<br/>Rendering FPS"]:::process
     end

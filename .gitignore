@@ -25,6 +25,9 @@ src/models/3dtiles/
 # Generated frontend secrets (Cesium ion token)
 src/js/config.js
 
+# PDF proposal (not pushed to repo)
+A34_E031-01-1598-2022_DANIEL MANYASA MAKOKHA.pdf
+
 # Node
 node_modules/
 
@@ -40,3 +43,6 @@ Thumbs.db
 
 # Logs
 *.log
+*.docx
+*.pdf
+project_report.md
