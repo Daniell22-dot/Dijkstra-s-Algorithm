@@ -1,0 +1,11 @@
+{
+  "DEDO": {
+    "lat": -0.39916111111111113,
+    "lon": 36.96279722222223,
+    "alt": 1772.0,
+    "north_rotation": 0.0,
+    "tileset_url": "/src/models/3dtiles/dedo/tileset.json",
+    "routing_url": "src/data/routing/network_graph.json",
+    "uploaded": false
+  }
+}
