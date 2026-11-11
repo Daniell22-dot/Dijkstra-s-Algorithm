@@ -6,6 +6,7 @@ import networkx as nx
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
+from config import Config
 
 app = Flask(__name__, static_folder='../src')
 CORS(app)
@@ -46,6 +47,26 @@ def health_check():
         'service': 'DeKUT Campus Digital Twin API',
         'version': '1.0.0'
     })
+
+
+# FRONTEND CONFIG
+
+@app.route('/api/config', methods=['GET'])
+def get_config():
+    """Expose non-secret frontend configuration."""
+    return jsonify({
+        'status': 'success',
+        'data': {
+            'cesiumIonToken': Config.CESIUM_ION_TOKEN
+        }
+    })
+
+
+@app.route('/api/config.js', methods=['GET'])
+def get_config_js():
+    """Serve the Cesium token as a classic script for static pages."""
+    body = f"window.CESIUM_ION_TOKEN = {json.dumps(Config.CESIUM_ION_TOKEN)};\n"
+    return body, 200, {'Content-Type': 'application/javascript; charset=utf-8'}
 
 # GET ALL BUILDINGS
 

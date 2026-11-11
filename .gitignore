@@ -19,6 +19,9 @@ env/
 *.bpn
 *.dwg
 
+# Generated frontend secrets (Cesium ion token)
+src/js/config.js
+
 # Node
 node_modules/
 

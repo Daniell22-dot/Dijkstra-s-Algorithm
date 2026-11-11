@@ -36,6 +36,15 @@ class Config:
     MODEL_DIR = os.path.join(PROJECT_ROOT, 'src', 'models')
     TILESET_DIR = os.path.join(MODEL_DIR, '3dtiles', 'tileset')
     
+    # Cesium ion (accept common key names used in .env)
+    CESIUM_ION_TOKEN = (
+        os.getenv('CESIUM_ION_TOKEN')
+        or os.getenv('CESIUM_TOKEN')
+        or os.getenv('Token')
+        or os.getenv('token')
+        or ''
+    )
+
     # CORS settings
     CORS_ORIGINS = ['http://localhost:8000', 'http://127.0.0.1:8000']
     
