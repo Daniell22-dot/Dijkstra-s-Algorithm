@@ -12,6 +12,7 @@ function initApp() {
     setupUI();
     showWelcome();
     loadBuildings();
+    loadRoutingNetwork();
 }
 
 function setupUI() {
@@ -114,70 +115,51 @@ async function handleRouteRequest() {
     const start = document.getElementById('startInput').value.trim();
     const end = document.getElementById('endInput').value.trim();
 
+    const resultDiv = document.getElementById('routeResult');
+
     if (!start || !end) {
-        document.getElementById('routeResult').innerHTML = `
+        resultDiv.innerHTML = `
             <span class="route-info">Please enter both start and end locations</span>
         `;
         return;
     }
 
-    // Get current building
-    const buildingSelect = document.getElementById('buildingSelect');
-    const buildingId = buildingSelect.value;
-
-    if (!buildingId) {
-        document.getElementById('routeResult').innerHTML = `
-            <span class="route-info">Please select a building first</span>
-        `;
-        return;
-    }
-
     try {
-        const response = await fetch('/api/route', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                building_id: buildingId,
-                start: start,
-                end: end
-            })
-        });
+        if (!window.findPath) {
+            resultDiv.innerHTML = `<span class="route-info">Routing engine not loaded</span>`;
+            return;
+        }
 
-        const result = await response.json();
-        const resultDiv = document.getElementById('routeResult');
+        const data = window.findPath(start, end);
 
-        if (result.status === 'success') {
-            const data = result.data;
-
-            // Draw route on 3D model
-            if (window.drawRoute) {
-                window.drawRoute(data.path_details);
-            }
-
-            // Update route status
-            document.getElementById('routeStatus').textContent = 'Route found!';
-            document.getElementById('routeStatus').style.color = '#34d399';
-
-            // Show result
+        if (!data || data.error) {
             resultDiv.innerHTML = `
-                <div class="route-found"> Route found!</div>
-                <div class="route-distance"> ${data.distance.toFixed(1)} units · ${data.steps} steps</div>
-                <div style="color:rgba(255,255,255,0.3); font-size:10px; margin-top:4px;">
-                    ${data.path.join(' → ')}
-                </div>
-                <div style="color:rgba(255,255,255,0.2); font-size:9px; margin-top:2px;">
-                    Floors: ${data.floors.join(', ')}
-                </div>
-            `;
-        } else {
-            resultDiv.innerHTML = `
-                <span class="route-info">${result.message || 'No route found'}</span>
+                <span class="route-info">${(data && data.error) || 'No route found'}</span>
             `;
             document.getElementById('routeStatus').textContent = 'No route';
             document.getElementById('routeStatus').style.color = '#ef4444';
+            return;
         }
+
+        if (window.drawRoute) {
+            window.drawRoute(data.path_details);
+        }
+
+        document.getElementById('routeStatus').textContent = 'Route found!';
+        document.getElementById('routeStatus').style.color = '#34d399';
+
+        resultDiv.innerHTML = `
+            <div class="route-found"> Route found!</div>
+            <div class="route-distance"> ${data.distance.toFixed(1)} m · ${data.steps} steps</div>
+            <div style="color:rgba(255,255,255,0.3); font-size:10px; margin-top:4px;">
+                ${data.path.join(' → ')}
+            </div>
+            <div style="color:rgba(255,255,255,0.2); font-size:9px; margin-top:2px;">
+                Floors: ${data.floors.join(', ')}
+            </div>
+        `;
     } catch (error) {
-        document.getElementById('routeResult').innerHTML = `
+        resultDiv.innerHTML = `
             <span class="route-info">Error: ${error.message}</span>
         `;
     }
@@ -299,39 +281,53 @@ async function loadBuildings() {
 
 
 async function loadRoutingNetwork(buildingId) {
-    try {
-        const response = await fetch(`/static/${buildingId}/routing_graph.json`);
-        const data = await response.json();
-
-        // Update network data globally
-        if (window.networkData) {
-            window.networkData.nodes = data.nodes || [];
-            window.networkData.edges = data.edges || [];
-            window.networkData.floors = data.floors || [];
-        }
-
-        // Populate room dropdowns
-        const startInput = document.getElementById('startInput');
-        const endInput = document.getElementById('endInput');
-
-        const roomNames = data.nodes
-            .filter(n => n.is_room)
-            .map(n => n.name)
-            .sort();
-
-        // Set up datalist for autocomplete
-        const datalist = document.getElementById('roomList');
-        datalist.innerHTML = '';
-        roomNames.forEach(name => {
-            const option = document.createElement('option');
-            option.value = name;
-            datalist.appendChild(option);
-        });
-
-        console.log('Routing network loaded:', roomNames.length, 'rooms');
-    } catch (error) {
-        console.error('Error loading routing network:', error);
+    const sources = [];
+    if (buildingId) {
+        sources.push(`/static/${buildingId}/routing_graph.json`);
     }
+    sources.push('src/data/routing/network_graph.json');
+
+    let data = null;
+    for (const url of sources) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                continue;
+            }
+            data = await response.json();
+            break;
+        } catch (error) {
+            console.warn('Could not load routing network from', url);
+        }
+    }
+
+    if (!data) {
+        console.error('Error loading routing network: no source available');
+        return;
+    }
+
+    // Update network data globally
+    if (window.networkData) {
+        window.networkData.nodes = data.nodes || [];
+        window.networkData.edges = data.edges || [];
+        window.networkData.floors = data.floors || [];
+    }
+
+    // Populate room dropdowns with recovered labels when available
+    const roomNames = (data.nodes || [])
+        .filter(n => n.is_room)
+        .map(n => n.label || n.name)
+        .sort();
+
+    const datalist = document.getElementById('roomList');
+    datalist.innerHTML = '';
+    roomNames.forEach(name => {
+        const option = document.createElement('option');
+        option.value = name;
+        datalist.appendChild(option);
+    });
+
+    console.log('Routing network loaded:', roomNames.length, 'rooms');
 }
 
 

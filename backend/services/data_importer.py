@@ -68,15 +68,16 @@ class DataImporter:
             try:
                 query = """
                     INSERT INTO rooms (
-                        id, name, floor, type, area, capacity, equipment,
+                        id, name, label, floor, type, area, capacity, equipment,
                         year_built, maintenance_status, risk_level,
                         temperature, noise_db, lighting_lux,
                         latitude, longitude, center_x, center_y, center_z
-                    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 """
                 params = (
                     row.get('id'),
                     str(row.get('name')) if row.get('name') is not None else None,
+                    row.get('label'),
                     row.get('floor'),
                     row.get('type'),
                     row.get('area'),
@@ -209,12 +210,13 @@ class DataImporter:
         for node in data.get('nodes', []):
             try:
                 query = """
-                    INSERT INTO network_nodes (id, name, floor, x, y, z, node_type, is_room)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                    INSERT INTO network_nodes (id, name, label, floor, x, y, z, node_type, is_room)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
                 """
                 params = (
                     node.get('id'),
                     node.get('name'),
+                    node.get('label'),
                     node.get('floor', '0'),
                     node.get('x', 0),
                     node.get('y', 0),

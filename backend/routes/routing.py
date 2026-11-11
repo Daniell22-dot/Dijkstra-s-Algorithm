@@ -42,7 +42,7 @@ def get_routing_rooms():
     """Get all rooms available for routing"""
     try:
         query = """
-            SELECT id, name, floor, x, y, z
+            SELECT id, name, label, floor, x, y, z
             FROM network_nodes
             WHERE is_room = TRUE
             ORDER BY floor, name
@@ -54,6 +54,7 @@ def get_routing_rooms():
             rooms.append({
                 'id': row['id'],
                 'name': row['name'],
+                'label': row['label'],
                 'floor': row['floor'],
                 'x': row['x'],
                 'y': row['y'],
@@ -79,7 +80,7 @@ def get_network():
     try:
         # Get nodes
         nodes_query = """
-            SELECT id, name, floor, x, y, z, node_type, is_room
+            SELECT id, name, label, floor, x, y, z, node_type, is_room
             FROM network_nodes
             ORDER BY floor, name
         """

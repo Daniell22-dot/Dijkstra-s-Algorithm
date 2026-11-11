@@ -32,6 +32,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_IFC = os.path.join(ROOT, 'src', 'data', 'bim', 'DANIEL.ifc')
 BIM_OUT = os.path.join(ROOT, 'src', 'data', 'bim')
 ROUTING_OUT = os.path.join(ROOT, 'src', 'data', 'routing')
+ROOM_LABELS = os.path.join(BIM_OUT, 'room_labels.csv')
 
 FLOOR_MAP = {
     'ground floor': 'Ground',
@@ -50,7 +51,7 @@ FLOOR_MAP = {
 }
 
 ROOM_FIELDS = [
-    'id', 'name', 'floor', 'type', 'area', 'capacity', 'equipment',
+    'id', 'name', 'label', 'floor', 'type', 'area', 'capacity', 'equipment',
     'year_built', 'maintenance_status', 'risk_level',
     'temperature', 'noise_db', 'lighting_lux',
     'latitude', 'longitude', 'center_x', 'center_y', 'center_z',
@@ -183,7 +184,20 @@ class Geometry:
         return round(float(value) * self.unit_scale, 3)
 
 
-def extract_rooms(ifc_file, geometry):
+def load_room_labels():
+    """Load recovered ArchiCAD labels keyed by room number."""
+    if not os.path.exists(ROOM_LABELS):
+        return {}
+    with open(ROOM_LABELS, newline='', encoding='utf-8') as handle:
+        return {
+            row['name'].strip(): row['label'].strip()
+            for row in csv.DictReader(handle)
+            if row.get('name') and row.get('label')
+        }
+
+
+def extract_rooms(ifc_file, geometry, labels=None):
+    labels = labels or {}
     rooms = []
     for space in ifc_file.by_type('IfcSpace'):
         storey = get_storey(space)
@@ -193,6 +207,7 @@ def extract_rooms(ifc_file, geometry):
         rooms.append({
             'id': space.GlobalId,
             'name': name,
+            'label': labels.get(name),
             'floor': floor_name(storey),
             'type': room_type,
             'area': round(area, 2),
@@ -285,6 +300,7 @@ def build_network(ifc_file, geometry, rooms, doors, stairs, floors):
         node = {
             'id': room['id'],
             'name': room['name'],
+            'label': room.get('label'),
             'floor': room['floor'],
             'x': room['center_x'],
             'y': room['center_y'],
@@ -469,7 +485,8 @@ def main():
     ifc_file = ifcopenshell.open(ifc_file_path)
     geometry = Geometry(ifc_file)
 
-    rooms = extract_rooms(ifc_file, geometry)
+    labels = load_room_labels()
+    rooms = extract_rooms(ifc_file, geometry, labels)
     doors = extract_elements(ifc_file, geometry, 'IfcDoor')
     windows = extract_elements(ifc_file, geometry, 'IfcWindow')
     stairs = extract_elements(ifc_file, geometry, 'IfcStair')

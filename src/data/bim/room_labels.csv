@@ -1,0 +1,20 @@
+name,label,floor,type,status,notes
+59,Analytical Chem Lab,Ground,Laboratory,confirmed,Recovered from SOEdan.bpn; position y=32.254 story 0
+69,COD's Office,Second,Office,confirmed,Recovered from SOEdan.bpn; position y=32.041 story 2
+80,Postgraduate Chem Research,Second,Room,confirmed,Recovered from SOEdan.bpn; position x=0.046 y=-12.067
+75,Storage Room,Second,Storage Room,confirmed,Recovered from SOEdan.bpn; only Storage Room
+14,Mechatronic Lab 2,Ground,Office,confirmed,Recovered from SOEdan.bpn; label contains GF 14
+34,Microscopy Lab,Second,Laboratory,confirmed,Recovered from SOEdan.bpn; story 2 laboratory
+98,Darkroom,Second,Darkroom,confirmed,Recovered from SOEdan.bpn; second-floor darkroom
+71,Electronics Lab,Second,Laboratory,proposed,Recovered from SOEdan.bpn; circuit analysis lab
+55,Micro Teaching Lab,First,Laboratory,proposed,Recovered from SOEdan.bpn; first-floor lab
+13,VDI Computer Lab 1,Second,Laboratory,proposed,Recovered from SOEdan.bpn; computer lab
+72,Virtual Reality Lab,Second,Laboratory,proposed,Recovered from SOEdan.bpn; VR lab
+82,SATIMA Auditorium,First,Room,proposed,Recovered from SOEdan.bpn; large first-floor room
+16,Office Of the Academic Leader,Ground,Office,proposed,Recovered from SOEdan.bpn; ground office
+77,Lecturer's Office,Second,Office,proposed,Recovered from SOEdan.bpn; second-floor office
+76,Dean School Of Engineering,Second,Office,proposed,Recovered from SOEdan.bpn; second-floor office
+35,Nutrition Assessment Lab,Second,Laboratory,proposed,Recovered from SOEdan.bpn; second-floor lab
+15,Sem Room Restricted Access,Ground,Office,proposed,Recovered from SOEdan.bpn; ground seminar room
+79,Restricted Access,Second,Room,proposed,Recovered from SOEdan.bpn; second-floor room
+46,Food Chem Lab,Ground,Laboratory,proposed,Recovered from SOEdan.bpn; ground-floor lab

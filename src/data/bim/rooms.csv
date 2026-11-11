@@ -1,106 +1,106 @@
-id,name,floor,type,area,capacity,equipment,year_built,maintenance_status,risk_level,temperature,noise_db,lighting_lux,latitude,longitude,center_x,center_y,center_z
-3s1c80fJ5FFw6XQ5T9Mz$R,59,Ground,Laboratory,112.84,,,,Good,Low,,,,,,3.757,32.106,0.1
-2npGxedbP5yx4uZYIZILy_,60,Ground,Laboratory,167.74,,,,Good,Low,,,,,,24.553,33.99,0.1
-1vXS0s1Ev3NB0TS8ijMwiU,01,Ground,Corridor,67.86,,,,Good,Low,,,,,,11.797,-12.807,0.1
-05$Dgzhkv6uhsSXPf2sbom,02,Ground,Corridor,916.33,,,,Good,Low,,,,,,18.575,9.376,0.1
-3ZiqISSsX2ffn$iZT3Bzig,03,Ground,Corridor,78.13,,,,Good,Low,,,,,,-8.573,0.859,0.1
-3qs9Fl9GfAdP4u57V5LEoh,04,Ground,Corridor,61.16,,,,Good,Low,,,,,,-8.129,22.82,0.1
-0unyiY27j6KxAlBFZPGJFY,05,Ground,Corridor,50.92,,,,Good,Low,,,,,,11.3,33.318,0.1
-2g8KNEEZHBDxhLMxx0KWJI,07,Ground,Laboratory,99.64,,,,Good,Low,,,,,,-3.744,20.881,0.1
-1Sbf96VUnDPRZCX8pAr_2h,08,Ground,Laboratory,85.32,,,,Good,Low,,,,,,24.364,20.648,0.1
-1lZxX$x116jgAu5$cTXbYi,14,Ground,Office,96.99,,,,Good,Low,,,,,,18.824,-13.141,0.1
-1Pa6qfMvr5nPXJOq7tlN_e,15,Ground,Office,184.85,,,,Good,Low,,,,,,-0.368,-14.81,0.1
-0JTg0FkIvBDuqB4k0lOBfp,16,Ground,Office,60.02,,,,Good,Low,,,,,,36.783,20.89,0.1
-2Zbgv5hWz9mftwzAbiE7fj,22,Ground,Men,3.4,,,,Good,Low,,,,,,-14.454,-15.673,0.1
-1u9PHcvvD7ghdXd_5nRIxW,23,Ground,Men,12.07,,,,Good,Low,,,,,,-14.148,-10.066,0.1
-2gbcOaR5H7pQrTkFOkzUrI,24,Ground,Men,2.77,,,,Good,Low,,,,,,-12.246,-14.167,0.1
-0YWlYKeKr1a8qngx5nJtMu,25,Ground,Men,2.74,,,,Good,Low,,,,,,-13.233,-14.167,0.1
-1KVqwbRFzEgvBywOs0iTDF,26,Ground,Men,3.41,,,,Good,Low,,,,,,-12.727,-7.967,0.1
-0br82R0_LB5RBjnK8R2$fa,27,Ground,Ladies,25.09,,,,Good,Low,,,,,,-7.737,-10.671,0.1
-1JE_SRG$T8xAhKz542NNWG,28,Ground,Ladies,19.78,,,,Good,Low,,,,,,-10.67,-10.146,0.1
-2V30OEH8rBhwdgHPDnK8mg,40,Ground,Office,40.48,,,,Good,Low,,,,,,-13.445,22.848,0.1
-3qOrXah8v6RuZKIc_ReDdi,41,Ground,Office,39.07,,,,Good,Low,,,,,,-13.44,16.913,0.1
-1k2W06Pzf26fK6bai7jW6D,42,Ground,Office,24.91,,,,Good,Low,,,,,,-4.362,12.61,0.1
-3504rY_PL1RQx3aznZLv8t,43,Ground,Office,84.96,,,,Good,Low,,,,,,-14.082,8.037,0.1
-1Uixk8co177RIWGju6cUrJ,44,Ground,Office,40.43,,,,Good,Low,,,,,,-13.44,-1.242,0.1
-0isb5univ4W8IGA5I$3kpS,45,Ground,Laboratory,109.47,,,,Good,Low,,,,,,-4.032,1.331,0.1
-3mY4svjO93Kuq7mkBYAxcl,46,Ground,Laboratory,24.63,,,,Good,Low,,,,,,-2.803,9.102,0.1
-222qD_SiT6nO$Oh4GkGDL6,115,Ground,WC,7.0,,,,Good,Low,,,,,,-9.604,33.366,0.1
-0JzMjQtRH2Uf6d7LWbC6hF,116,Ground,WC,12.01,,,,Good,Low,,,,,,-10.006,29.727,0.1
-2CHVj6lOb0Mh0xnkOUARwZ,117,Ground,WC,21.29,,,,Good,Low,,,,,,-7.508,32.764,0.1
-1BqTGEvqf3_RSGOJSNEABY,118,Ground,WC,21.19,,,,Good,Low,,,,,,-4.656,31.131,0.1
-3$6n4SWn540ORyEgdLfS_e,119,Ground,WC,14.94,,,,Good,Low,,,,,,32.734,31.939,0.1
-2HMoye1Kz2NfmIcLT$nKEt,120,Ground,WC,14.91,,,,Good,Low,,,,,,35.877,31.459,0.1
-1JGjbrChrBlwtK05BZVjN5,09,First,Laboratory,99.45,,,,Good,Low,,,,,,-3.803,19.929,3.1
-3zDc1msMD9leK95Tj7LyV1,10,First,Laboratory,114.77,,,,Good,Low,,,,,,25.46,17.914,3.1
-0dZwcTvof9OfTifZ9JIQAj,29,First,Ladies,24.92,,,,Good,Low,,,,,,-7.601,-12.266,3.1
-3L1ni8f4XFFRFEc09VTgCG,30,First,Ladies,19.61,,,,Good,Low,,,,,,-10.597,-12.304,3.1
-0TJOfXganBz8HbgOeURj9z,47,First,Office,38.16,,,,Good,Low,,,,,,36.655,23.299,3.1
-19S9XliuPBjuYxM0uzpaNM,48,First,Office,40.21,,,,Good,Low,,,,,,36.373,16.637,3.1
-3pdsLoHz54NPxP2KtD9qIT,49,First,Office,18.39,,,,Good,Low,,,,,,36.146,12.316,3.1
-096Xh4wiLFcPJB9ic7CET4,50,First,Office,40.48,,,,Good,Low,,,,,,-13.445,22.848,3.1
-1EfXcV0fX6DRHy1zFU43pr,51,First,Office,39.18,,,,Good,Low,,,,,,-13.39,16.863,3.1
-3X19DAIuTEC9UXVXADp6VD,52,First,For Special Use,43.3,,,,Good,Low,,,,,,25.201,-1.584,3.1
-3bUAn4cB5ABu155n1NRCHG,53,First,For Special Use,24.63,,,,Good,Low,,,,,,-2.803,9.102,3.1
-1XreL2MmH5fvfVWTfIVDNe,54,First,Laboratory,40.43,,,,Good,Low,,,,,,-13.44,-1.242,3.1
-0gcnDHqEDDruE_sQDL6gQ0,55,First,Laboratory,108.92,,,,Good,Low,,,,,,-2.809,1.814,3.1
-1cDFEHHU933ATj41XkPDSY,56,First,Laboratory,24.74,,,,Good,Low,,,,,,-2.906,12.983,3.1
-2HRRRKlubEiPqhP9f3QABm,57,First,Laboratory,167.74,,,,Good,Low,,,,,,24.553,33.99,3.1
-0aUSQb_Rz6MQBDxFoD3Uxg,58,First,Laboratory,112.84,,,,Good,Low,,,,,,3.757,32.106,3.1
-0XzjwEUeXCJAdGkMc5OcIS,82,First,Room,184.65,,,,Good,Low,,,,,,0.24,-13.656,3.1
-285cuy89L3TAhMZbJbOYj8,83,First,Room,85.07,,,,Good,Low,,,,,,-14.04,7.835,3.1
-3rzfJqG01AS9x$LfnCC3SZ,100,First,WC Ladies,46.03,,,,Good,Low,,,,,,15.458,-13.727,3.1
-3oQM74TSD8_8Ri5vt96jla,101,First,WC Men,47.36,,,,Good,Low,,,,,,20.714,-13.726,3.1
-2Dnq0qoKb39f_nn40S7QRb,102,First,WC Men,12.28,,,,Good,Low,,,,,,-13.955,-10.58,3.1
-36m0IHQkj0JR6vLlPwxyWT,103,First,WC Men,3.43,,,,Good,Low,,,,,,-12.716,-7.967,3.1
-0e2NKI$Wv6XhTiCTS5x3SZ,104,First,WC Men,3.4,,,,Good,Low,,,,,,-14.454,-15.673,3.1
-1EtTQplCPAsQfpXkvE6Huw,108,First,Corridor,77.07,,,,Good,Low,,,,,,-7.857,0.697,3.1
-0Bf6mbakPF5ehdNqc8RUcJ,106,First,Corridor,76.98,,,,Good,Low,,,,,,-7.627,24.727,3.1
-02fZv7dUH4XPFP$ol6KIA2,107,First,Corridor,941.81,,,,Good,Low,,,,,,18.929,7.999,3.1
-1EIVHxvT5AUOueXdgzKUl6,105,First,Darkroom,34.0,,,,Good,Low,,,,,,24.416,-16.082,3.1
-0$y6ebANHFmPwfSHWlwRY0,110,First,WC,19.35,,,,Good,Low,,,,,,-10.132,31.322,3.1
-1D9rNWZ0bDuPDsE_EF1$UY,111,First,WC,21.12,,,,Good,Low,,,,,,-7.629,34.27,3.1
-2d621XImT9E95b7f1QBaxg,112,First,WC,21.02,,,,Good,Low,,,,,,-4.728,33.318,3.1
-2kjOnNeM9Dth$gHoohVJTT,113,First,WC,14.94,,,,Good,Low,,,,,,32.734,31.939,3.1
-0eG5WP5oTEJxPS6lAE2O3j,114,First,WC,14.91,,,,Good,Low,,,,,,35.877,31.459,3.1
-0j1NrYXr59ewH3br7WKe7b,62,Second,Laboratory,88.5,,,,Good,Low,,,,,,16.986,33.298,6.1
-2nLg4xcvvCw9PO9m5JiDs0,61,Second,Laboratory,76.33,,,,Good,Low,,,,,,29.58,34.27,6.1
-3fs2cUjz9AHwvFn1neVjA3,63,Second,Laboratory,114.4,,,,Good,Low,,,,,,8.823,32.95,6.1
-0IWJrVmirFwQ6HDFid_cpY,38,Second,Corridor,66.22,,,,Good,Low,,,,,,-7.874,23.79,6.1
-2URKUvL0zA1BxIdsQUTd5v,12,Second,Laboratory,99.36,,,,Good,Low,,,,,,-3.506,20.396,6.1
-1jaPFdiRf5tOdX4mo1Bro7,13,Second,Laboratory,112.95,,,,Good,Low,,,,,,24.88,19.951,6.1
-0Qcy$4fBP6txazgoqIscxr,89,Second,WC Men,3.77,,,,Good,Low,,,,,,-10.229,32.988,6.1
-3h_bZBERTE6g_h_YD8wmGJ,90,Second,WC Handicapped,17.69,,,,Good,Low,,,,,,-7.421,33.728,6.1
-2cusrOHdbCWBsyYJRXyQ3$,34,Second,Laboratory,167.68,,,,Good,Low,,,,,,15.099,-12.6,6.1
-1FZC4iSJn09O9IhPd4czVf,35,Second,Laboratory,52.02,,,,Good,Low,,,,,,-2.81,-1.242,6.1
-0quVQq7TT4YR1F_GXdvmjW,37,Second,Corridor,76.75,,,,Good,Low,,,,,,-8.073,1.427,6.1
-2JJkKm_3j5DOiy3xu3rVC2,64,Second,Office,38.03,,,,Good,Low,,,,,,36.146,22.913,6.1
-1EXYuWKyz17O9WwOltc6$H,65,Second,Office,39.39,,,,Good,Low,,,,,,36.127,17.009,6.1
-1ZeSlKrKj06Biv3aofW4EO,66,Second,Office,27.01,,,,Good,Low,,,,,,25.806,9.169,6.1
-3TJJ2N28v9WAkFhnjoti8H,67,Second,Office,40.76,,,,Good,Low,,,,,,-12.559,22.387,6.1
-3cXXu9IMX8d9wem1vx$C49,68,Second,Office,39.35,,,,Good,Low,,,,,,-12.555,16.675,6.1
-1mjYgJdBP3XebM1dP6FTvX,69,Second,Office,73.19,,,,Good,Low,,,,,,-0.926,31.847,6.1
-0OabyLvk1Dtht$TBwSVnc0,70,Second,Corridor,898.26,,,,Good,Low,,,,,,18.73,9.969,6.1
-0NMDFRSPT4tx7ym51XPrzX,71,Second,Laboratory,118.79,,,,Good,Low,,,,,,25.017,1.825,6.1
-0gaeO5X9zCrAqDSFyYY42v,72,Second,Laboratory,18.82,,,,Good,Low,,,,,,35.481,12.533,6.1
-2nAv2bKSj86gYG8ei6Gbk8,75,Second,Storage Room,54.32,,,,Good,Low,,,,,,-2.81,4.883,6.1
-1U1NbIv8P2pQGbcVYSv7aA,76,Second,Office,52.3,,,,Good,Low,,,,,,-3.739,10.844,6.1
-2Gf$FMPND5sxB4POfwIgSj,77,Second,Office,40.83,,,,Good,Low,,,,,,-12.768,11.651,6.1
-3eZQ_Ps550MPUjSq_bnMHh,78,Second,Room,42.63,,,,Good,Low,,,,,,-12.768,4.031,6.1
-0JS3hxZCDEIemLv68eKon7,79,Second,Room,40.71,,,,Good,Low,,,,,,-12.555,-1.684,6.1
-1atPuwXijCJB48suvdCZ3j,80,Second,Room,185.2,,,,Good,Low,,,,,,0.441,-12.288,6.1
-3eHWHP4S1DafG7zNFAu54x,81,Second,Room,83.12,,,,Good,Low,,,,,,36.672,0.706,6.1
-1zcqCAbhP5S9nW_IF4u7kZ,84,Second,WC Men,15.1,,,,Good,Low,,,,,,35.63,30.75,6.1
-26M17bLwv3LRM1FyZNwYKB,85,Second,WC Ladies,15.11,,,,Good,Low,,,,,,32.91,30.75,6.1
-1IXhaqMSLAUhGBLJPJ6Nfb,86,Second,WC Ladies,9.54,,,,Good,Low,,,,,,-9.258,30.354,6.1
-3iXcZFuyL0EQUmJgepvcf1,87,Second,WC Men,7.6,,,,Good,Low,,,,,,-11.083,29.615,6.1
-0l3qzbm6HCShDOtfGIyHzX,88,Second,WC Men,4.07,,,,Good,Low,,,,,,-11.727,32.966,6.1
-1595nCdWj7YQSooeybRYBd,91,Second,WC Handicapped,19.89,,,,Good,Low,,,,,,-10.579,-10.146,6.1
-164QWnqWz12uBNf5V4dMZc,92,Second,WC Men,11.91,,,,Good,Low,,,,,,-14.1,-9.115,6.1
-2xUriE2zjDQOwNPOpph9WL,93,Second,WC Men,3.53,,,,Good,Low,,,,,,-14.48,-14.778,6.1
-2v42MyO1jBrORIY0vMcNH2,94,Second,WC Men,2.73,,,,Good,Low,,,,,,-13.259,-14.167,6.1
-2BRZ2$aoP9th$nUWn_d58T,95,Second,WC Men,2.75,,,,Good,Low,,,,,,-12.271,-14.167,6.1
-3QwRWKm7f0J9a5kdVGoAkS,96,Second,WC Ladies,25.2,,,,Good,Low,,,,,,-7.743,-10.671,6.1
-2qoBsdpKLFXArHM5RzNIw_,97,Second,WC,34.17,,,,Good,Low,,,,,,24.502,-15.16,6.1
-0IR8k7cKD2XPdvuf$o6_Z3,98,Second,Darkroom,26.77,,,,Good,Low,,,,,,26.534,12.718,6.1
-1YjYucQrv5ZPbkSwy9ZyGM,99,Second,Darkroom,18.84,,,,Good,Low,,,,,,35.987,9.442,6.1
+id,name,label,floor,type,area,capacity,equipment,year_built,maintenance_status,risk_level,temperature,noise_db,lighting_lux,latitude,longitude,center_x,center_y,center_z
+3s1c80fJ5FFw6XQ5T9Mz$R,59,Analytical Chem Lab,Ground,Laboratory,112.84,,,,Good,Low,,,,,,3.757,32.106,0.1
+2npGxedbP5yx4uZYIZILy_,60,,Ground,Laboratory,167.74,,,,Good,Low,,,,,,24.553,33.99,0.1
+1vXS0s1Ev3NB0TS8ijMwiU,01,,Ground,Corridor,67.86,,,,Good,Low,,,,,,11.797,-12.807,0.1
+05$Dgzhkv6uhsSXPf2sbom,02,,Ground,Corridor,916.33,,,,Good,Low,,,,,,18.575,9.376,0.1
+3ZiqISSsX2ffn$iZT3Bzig,03,,Ground,Corridor,78.13,,,,Good,Low,,,,,,-8.573,0.859,0.1
+3qs9Fl9GfAdP4u57V5LEoh,04,,Ground,Corridor,61.16,,,,Good,Low,,,,,,-8.129,22.82,0.1
+0unyiY27j6KxAlBFZPGJFY,05,,Ground,Corridor,50.92,,,,Good,Low,,,,,,11.3,33.318,0.1
+2g8KNEEZHBDxhLMxx0KWJI,07,,Ground,Laboratory,99.64,,,,Good,Low,,,,,,-3.744,20.881,0.1
+1Sbf96VUnDPRZCX8pAr_2h,08,,Ground,Laboratory,85.32,,,,Good,Low,,,,,,24.364,20.648,0.1
+1lZxX$x116jgAu5$cTXbYi,14,Mechatronic Lab 2,Ground,Office,96.99,,,,Good,Low,,,,,,18.824,-13.141,0.1
+1Pa6qfMvr5nPXJOq7tlN_e,15,Sem Room Restricted Access,Ground,Office,184.85,,,,Good,Low,,,,,,-0.368,-14.81,0.1
+0JTg0FkIvBDuqB4k0lOBfp,16,Office Of the Academic Leader,Ground,Office,60.02,,,,Good,Low,,,,,,36.783,20.89,0.1
+2Zbgv5hWz9mftwzAbiE7fj,22,,Ground,Men,3.4,,,,Good,Low,,,,,,-14.454,-15.673,0.1
+1u9PHcvvD7ghdXd_5nRIxW,23,,Ground,Men,12.07,,,,Good,Low,,,,,,-14.148,-10.066,0.1
+2gbcOaR5H7pQrTkFOkzUrI,24,,Ground,Men,2.77,,,,Good,Low,,,,,,-12.246,-14.167,0.1
+0YWlYKeKr1a8qngx5nJtMu,25,,Ground,Men,2.74,,,,Good,Low,,,,,,-13.233,-14.167,0.1
+1KVqwbRFzEgvBywOs0iTDF,26,,Ground,Men,3.41,,,,Good,Low,,,,,,-12.727,-7.967,0.1
+0br82R0_LB5RBjnK8R2$fa,27,,Ground,Ladies,25.09,,,,Good,Low,,,,,,-7.737,-10.671,0.1
+1JE_SRG$T8xAhKz542NNWG,28,,Ground,Ladies,19.78,,,,Good,Low,,,,,,-10.67,-10.146,0.1
+2V30OEH8rBhwdgHPDnK8mg,40,,Ground,Office,40.48,,,,Good,Low,,,,,,-13.445,22.848,0.1
+3qOrXah8v6RuZKIc_ReDdi,41,,Ground,Office,39.07,,,,Good,Low,,,,,,-13.44,16.913,0.1
+1k2W06Pzf26fK6bai7jW6D,42,,Ground,Office,24.91,,,,Good,Low,,,,,,-4.362,12.61,0.1
+3504rY_PL1RQx3aznZLv8t,43,,Ground,Office,84.96,,,,Good,Low,,,,,,-14.082,8.037,0.1
+1Uixk8co177RIWGju6cUrJ,44,,Ground,Office,40.43,,,,Good,Low,,,,,,-13.44,-1.242,0.1
+0isb5univ4W8IGA5I$3kpS,45,,Ground,Laboratory,109.47,,,,Good,Low,,,,,,-4.032,1.331,0.1
+3mY4svjO93Kuq7mkBYAxcl,46,Food Chem Lab,Ground,Laboratory,24.63,,,,Good,Low,,,,,,-2.803,9.102,0.1
+222qD_SiT6nO$Oh4GkGDL6,115,,Ground,WC,7.0,,,,Good,Low,,,,,,-9.604,33.366,0.1
+0JzMjQtRH2Uf6d7LWbC6hF,116,,Ground,WC,12.01,,,,Good,Low,,,,,,-10.006,29.727,0.1
+2CHVj6lOb0Mh0xnkOUARwZ,117,,Ground,WC,21.29,,,,Good,Low,,,,,,-7.508,32.764,0.1
+1BqTGEvqf3_RSGOJSNEABY,118,,Ground,WC,21.19,,,,Good,Low,,,,,,-4.656,31.131,0.1
+3$6n4SWn540ORyEgdLfS_e,119,,Ground,WC,14.94,,,,Good,Low,,,,,,32.734,31.939,0.1
+2HMoye1Kz2NfmIcLT$nKEt,120,,Ground,WC,14.91,,,,Good,Low,,,,,,35.877,31.459,0.1
+1JGjbrChrBlwtK05BZVjN5,09,,First,Laboratory,99.45,,,,Good,Low,,,,,,-3.803,19.929,3.1
+3zDc1msMD9leK95Tj7LyV1,10,,First,Laboratory,114.77,,,,Good,Low,,,,,,25.46,17.914,3.1
+0dZwcTvof9OfTifZ9JIQAj,29,,First,Ladies,24.92,,,,Good,Low,,,,,,-7.601,-12.266,3.1
+3L1ni8f4XFFRFEc09VTgCG,30,,First,Ladies,19.61,,,,Good,Low,,,,,,-10.597,-12.304,3.1
+0TJOfXganBz8HbgOeURj9z,47,,First,Office,38.16,,,,Good,Low,,,,,,36.655,23.299,3.1
+19S9XliuPBjuYxM0uzpaNM,48,,First,Office,40.21,,,,Good,Low,,,,,,36.373,16.637,3.1
+3pdsLoHz54NPxP2KtD9qIT,49,,First,Office,18.39,,,,Good,Low,,,,,,36.146,12.316,3.1
+096Xh4wiLFcPJB9ic7CET4,50,,First,Office,40.48,,,,Good,Low,,,,,,-13.445,22.848,3.1
+1EfXcV0fX6DRHy1zFU43pr,51,,First,Office,39.18,,,,Good,Low,,,,,,-13.39,16.863,3.1
+3X19DAIuTEC9UXVXADp6VD,52,,First,For Special Use,43.3,,,,Good,Low,,,,,,25.201,-1.584,3.1
+3bUAn4cB5ABu155n1NRCHG,53,,First,For Special Use,24.63,,,,Good,Low,,,,,,-2.803,9.102,3.1
+1XreL2MmH5fvfVWTfIVDNe,54,,First,Laboratory,40.43,,,,Good,Low,,,,,,-13.44,-1.242,3.1
+0gcnDHqEDDruE_sQDL6gQ0,55,Micro Teaching Lab,First,Laboratory,108.92,,,,Good,Low,,,,,,-2.809,1.814,3.1
+1cDFEHHU933ATj41XkPDSY,56,,First,Laboratory,24.74,,,,Good,Low,,,,,,-2.906,12.983,3.1
+2HRRRKlubEiPqhP9f3QABm,57,,First,Laboratory,167.74,,,,Good,Low,,,,,,24.553,33.99,3.1
+0aUSQb_Rz6MQBDxFoD3Uxg,58,,First,Laboratory,112.84,,,,Good,Low,,,,,,3.757,32.106,3.1
+0XzjwEUeXCJAdGkMc5OcIS,82,SATIMA Auditorium,First,Room,184.65,,,,Good,Low,,,,,,0.24,-13.656,3.1
+285cuy89L3TAhMZbJbOYj8,83,,First,Room,85.07,,,,Good,Low,,,,,,-14.04,7.835,3.1
+3rzfJqG01AS9x$LfnCC3SZ,100,,First,WC Ladies,46.03,,,,Good,Low,,,,,,15.458,-13.727,3.1
+3oQM74TSD8_8Ri5vt96jla,101,,First,WC Men,47.36,,,,Good,Low,,,,,,20.714,-13.726,3.1
+2Dnq0qoKb39f_nn40S7QRb,102,,First,WC Men,12.28,,,,Good,Low,,,,,,-13.955,-10.58,3.1
+36m0IHQkj0JR6vLlPwxyWT,103,,First,WC Men,3.43,,,,Good,Low,,,,,,-12.716,-7.967,3.1
+0e2NKI$Wv6XhTiCTS5x3SZ,104,,First,WC Men,3.4,,,,Good,Low,,,,,,-14.454,-15.673,3.1
+1EtTQplCPAsQfpXkvE6Huw,108,,First,Corridor,77.07,,,,Good,Low,,,,,,-7.857,0.697,3.1
+0Bf6mbakPF5ehdNqc8RUcJ,106,,First,Corridor,76.98,,,,Good,Low,,,,,,-7.627,24.727,3.1
+02fZv7dUH4XPFP$ol6KIA2,107,,First,Corridor,941.81,,,,Good,Low,,,,,,18.929,7.999,3.1
+1EIVHxvT5AUOueXdgzKUl6,105,,First,Darkroom,34.0,,,,Good,Low,,,,,,24.416,-16.082,3.1
+0$y6ebANHFmPwfSHWlwRY0,110,,First,WC,19.35,,,,Good,Low,,,,,,-10.132,31.322,3.1
+1D9rNWZ0bDuPDsE_EF1$UY,111,,First,WC,21.12,,,,Good,Low,,,,,,-7.629,34.27,3.1
+2d621XImT9E95b7f1QBaxg,112,,First,WC,21.02,,,,Good,Low,,,,,,-4.728,33.318,3.1
+2kjOnNeM9Dth$gHoohVJTT,113,,First,WC,14.94,,,,Good,Low,,,,,,32.734,31.939,3.1
+0eG5WP5oTEJxPS6lAE2O3j,114,,First,WC,14.91,,,,Good,Low,,,,,,35.877,31.459,3.1
+0j1NrYXr59ewH3br7WKe7b,62,,Second,Laboratory,88.5,,,,Good,Low,,,,,,16.986,33.298,6.1
+2nLg4xcvvCw9PO9m5JiDs0,61,,Second,Laboratory,76.33,,,,Good,Low,,,,,,29.58,34.27,6.1
+3fs2cUjz9AHwvFn1neVjA3,63,,Second,Laboratory,114.4,,,,Good,Low,,,,,,8.823,32.95,6.1
+0IWJrVmirFwQ6HDFid_cpY,38,,Second,Corridor,66.22,,,,Good,Low,,,,,,-7.874,23.79,6.1
+2URKUvL0zA1BxIdsQUTd5v,12,,Second,Laboratory,99.36,,,,Good,Low,,,,,,-3.506,20.396,6.1
+1jaPFdiRf5tOdX4mo1Bro7,13,VDI Computer Lab 1,Second,Laboratory,112.95,,,,Good,Low,,,,,,24.88,19.951,6.1
+0Qcy$4fBP6txazgoqIscxr,89,,Second,WC Men,3.77,,,,Good,Low,,,,,,-10.229,32.988,6.1
+3h_bZBERTE6g_h_YD8wmGJ,90,,Second,WC Handicapped,17.69,,,,Good,Low,,,,,,-7.421,33.728,6.1
+2cusrOHdbCWBsyYJRXyQ3$,34,Microscopy Lab,Second,Laboratory,167.68,,,,Good,Low,,,,,,15.099,-12.6,6.1
+1FZC4iSJn09O9IhPd4czVf,35,Nutrition Assessment Lab,Second,Laboratory,52.02,,,,Good,Low,,,,,,-2.81,-1.242,6.1
+0quVQq7TT4YR1F_GXdvmjW,37,,Second,Corridor,76.75,,,,Good,Low,,,,,,-8.073,1.427,6.1
+2JJkKm_3j5DOiy3xu3rVC2,64,,Second,Office,38.03,,,,Good,Low,,,,,,36.146,22.913,6.1
+1EXYuWKyz17O9WwOltc6$H,65,,Second,Office,39.39,,,,Good,Low,,,,,,36.127,17.009,6.1
+1ZeSlKrKj06Biv3aofW4EO,66,,Second,Office,27.01,,,,Good,Low,,,,,,25.806,9.169,6.1
+3TJJ2N28v9WAkFhnjoti8H,67,,Second,Office,40.76,,,,Good,Low,,,,,,-12.559,22.387,6.1
+3cXXu9IMX8d9wem1vx$C49,68,,Second,Office,39.35,,,,Good,Low,,,,,,-12.555,16.675,6.1
+1mjYgJdBP3XebM1dP6FTvX,69,COD's Office,Second,Office,73.19,,,,Good,Low,,,,,,-0.926,31.847,6.1
+0OabyLvk1Dtht$TBwSVnc0,70,,Second,Corridor,898.26,,,,Good,Low,,,,,,18.73,9.969,6.1
+0NMDFRSPT4tx7ym51XPrzX,71,Electronics Lab,Second,Laboratory,118.79,,,,Good,Low,,,,,,25.017,1.825,6.1
+0gaeO5X9zCrAqDSFyYY42v,72,Virtual Reality Lab,Second,Laboratory,18.82,,,,Good,Low,,,,,,35.481,12.533,6.1
+2nAv2bKSj86gYG8ei6Gbk8,75,Storage Room,Second,Storage Room,54.32,,,,Good,Low,,,,,,-2.81,4.883,6.1
+1U1NbIv8P2pQGbcVYSv7aA,76,Dean School Of Engineering,Second,Office,52.3,,,,Good,Low,,,,,,-3.739,10.844,6.1
+2Gf$FMPND5sxB4POfwIgSj,77,Lecturer's Office,Second,Office,40.83,,,,Good,Low,,,,,,-12.768,11.651,6.1
+3eZQ_Ps550MPUjSq_bnMHh,78,,Second,Room,42.63,,,,Good,Low,,,,,,-12.768,4.031,6.1
+0JS3hxZCDEIemLv68eKon7,79,Restricted Access,Second,Room,40.71,,,,Good,Low,,,,,,-12.555,-1.684,6.1
+1atPuwXijCJB48suvdCZ3j,80,Postgraduate Chem Research,Second,Room,185.2,,,,Good,Low,,,,,,0.441,-12.288,6.1
+3eHWHP4S1DafG7zNFAu54x,81,,Second,Room,83.12,,,,Good,Low,,,,,,36.672,0.706,6.1
+1zcqCAbhP5S9nW_IF4u7kZ,84,,Second,WC Men,15.1,,,,Good,Low,,,,,,35.63,30.75,6.1
+26M17bLwv3LRM1FyZNwYKB,85,,Second,WC Ladies,15.11,,,,Good,Low,,,,,,32.91,30.75,6.1
+1IXhaqMSLAUhGBLJPJ6Nfb,86,,Second,WC Ladies,9.54,,,,Good,Low,,,,,,-9.258,30.354,6.1
+3iXcZFuyL0EQUmJgepvcf1,87,,Second,WC Men,7.6,,,,Good,Low,,,,,,-11.083,29.615,6.1
+0l3qzbm6HCShDOtfGIyHzX,88,,Second,WC Men,4.07,,,,Good,Low,,,,,,-11.727,32.966,6.1
+1595nCdWj7YQSooeybRYBd,91,,Second,WC Handicapped,19.89,,,,Good,Low,,,,,,-10.579,-10.146,6.1
+164QWnqWz12uBNf5V4dMZc,92,,Second,WC Men,11.91,,,,Good,Low,,,,,,-14.1,-9.115,6.1
+2xUriE2zjDQOwNPOpph9WL,93,,Second,WC Men,3.53,,,,Good,Low,,,,,,-14.48,-14.778,6.1
+2v42MyO1jBrORIY0vMcNH2,94,,Second,WC Men,2.73,,,,Good,Low,,,,,,-13.259,-14.167,6.1
+2BRZ2$aoP9th$nUWn_d58T,95,,Second,WC Men,2.75,,,,Good,Low,,,,,,-12.271,-14.167,6.1
+3QwRWKm7f0J9a5kdVGoAkS,96,,Second,WC Ladies,25.2,,,,Good,Low,,,,,,-7.743,-10.671,6.1
+2qoBsdpKLFXArHM5RzNIw_,97,,Second,WC,34.17,,,,Good,Low,,,,,,24.502,-15.16,6.1
+0IR8k7cKD2XPdvuf$o6_Z3,98,Darkroom,Second,Darkroom,26.77,,,,Good,Low,,,,,,26.534,12.718,6.1
+1YjYucQrv5ZPbkSwy9ZyGM,99,,Second,Darkroom,18.84,,,,Good,Low,,,,,,35.987,9.442,6.1

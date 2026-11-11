@@ -13,7 +13,7 @@ def get_all_rooms():
     """Get all rooms"""
     try:
         query = """
-            SELECT id, name, floor, type, area, capacity, equipment,
+            SELECT id, name, label, floor, type, area, capacity, equipment,
                    year_built, maintenance_status, risk_level, 
                    temperature, noise_db, lighting_lux,
                    latitude, longitude
@@ -27,6 +27,7 @@ def get_all_rooms():
             rooms.append({
                 'id': row['id'],
                 'name': row['name'],
+                'label': row['label'],
                 'floor': row['floor'],
                 'type': row['type'],
                 'area': row['area'],
@@ -60,7 +61,7 @@ def get_room(room_id):
     """Get a specific room by ID"""
     try:
         query = """
-            SELECT id, name, floor, type, area, capacity, equipment,
+            SELECT id, name, label, floor, type, area, capacity, equipment,
                    year_built, maintenance_status, risk_level, 
                    temperature, noise_db, lighting_lux,
                    latitude, longitude, center_x, center_y, center_z
@@ -80,6 +81,7 @@ def get_room(room_id):
             'data': {
                 'id': row['id'],
                 'name': row['name'],
+                'label': row['label'],
                 'floor': row['floor'],
                 'type': row['type'],
                 'area': row['area'],
@@ -111,7 +113,7 @@ def get_rooms_by_floor(floor_name):
     """Get all rooms on a specific floor"""
     try:
         query = """
-            SELECT id, name, floor, type, area, capacity, equipment,
+            SELECT id, name, label, floor, type, area, capacity, equipment,
                    year_built, maintenance_status, risk_level, 
                    temperature, noise_db, lighting_lux,
                    latitude, longitude
@@ -126,6 +128,7 @@ def get_rooms_by_floor(floor_name):
             rooms.append({
                 'id': row['id'],
                 'name': row['name'],
+                'label': row['label'],
                 'floor': row['floor'],
                 'type': row['type'],
                 'area': row['area'],
@@ -167,20 +170,21 @@ def search_rooms():
     
     try:
         query = """
-            SELECT id, name, floor, type, area, capacity
+            SELECT id, name, label, floor, type, area, capacity
             FROM rooms
-            WHERE name ILIKE %s OR type ILIKE %s
+            WHERE name ILIKE %s OR type ILIKE %s OR label ILIKE %s
             ORDER BY floor, name
             LIMIT 20
         """
         search_pattern = f'%{query_param}%'
-        rows = db.execute_query(query, (search_pattern, search_pattern))
+        rows = db.execute_query(query, (search_pattern, search_pattern, search_pattern))
         
         rooms = []
         for row in rows:
             rooms.append({
                 'id': row['id'],
                 'name': row['name'],
+                'label': row['label'],
                 'floor': row['floor'],
                 'type': row['type'],
                 'area': row['area'],

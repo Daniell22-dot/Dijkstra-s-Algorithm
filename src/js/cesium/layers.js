@@ -10,6 +10,18 @@ let currentActiveFloor = 'all';
 let currentRouteEntity = null;
 let rawRouteData = [];
 
+const DEFAULT_CAMPUS_LON = 36.9617;
+const DEFAULT_CAMPUS_LAT = -0.39811;
+
+function getBuildingMatrix() {
+    if (window.buildingMatrix) {
+        return window.buildingMatrix;
+    }
+    return Cesium.Transforms.eastNorthUpToFixedFrame(
+        Cesium.Cartesian3.fromDegrees(DEFAULT_CAMPUS_LON, DEFAULT_CAMPUS_LAT, 0)
+    );
+}
+
 function filterBuildingView(targetFloor) {
     currentActiveFloor = targetFloor;
 
@@ -86,6 +98,7 @@ function updateRouteLineVisibility() {
     }
 
     const updatedPoints = [];
+    const matrix = getBuildingMatrix();
 
     rawRouteData.forEach(node => {
         if (currentActiveFloor !== 'all' && node.floor !== currentActiveFloor) {
@@ -93,7 +106,7 @@ function updateRouteLineVisibility() {
         }
         const localPoint = new Cesium.Cartesian3(node.x, node.y, node.z);
         const globalPoint = Cesium.Matrix4.multiplyByPoint(
-            window.buildingMatrix,
+            matrix,
             localPoint,
             new Cesium.Cartesian3()
         );
@@ -116,80 +129,79 @@ function drawRoute(pathDetails, color = Cesium.Color.CHARTREUSE) {
     }
 
     rawRouteData = pathDetails;
-}
 
-const globalPositions = [];
-pathDetails.forEach(node => {
-    const localPoint = new Cesium.Cartesian3(node.x, node.y, node.z);
-    const globalPoint = Cesium.Matrix4.multiplyByPoint(
-        window.buildingMatrix,
-        localPoint,
-        new Cesium.Cartesian3()
-    );
-    globalPositions.push(globalPoint);
-});
+    const matrix = getBuildingMatrix();
+    const globalPositions = pathDetails.map(node => {
+        const localPoint = new Cesium.Cartesian3(node.x, node.y, node.z);
+        return Cesium.Matrix4.multiplyByPoint(
+            matrix,
+            localPoint,
+            new Cesium.Cartesian3()
+        );
+    });
 
-currentRouteEntity = viewer.entities.add({
-    name: 'Indoor Route',
-    polyline: {
-        positions: globalPositions,
-        width: 6,
-        material: new Cesium.PolylineGlowMaterialProperty({
-            glowPower: 0.3,
-            color: color
-        }),
-        clampToGround: false,
-        depthFailMaterial: new Cesium.PolylineDashMaterialProperty({
-            color: color.withAlpha(0.5)
-        })
+    currentRouteEntity = viewer.entities.add({
+        name: 'Indoor Route',
+        polyline: {
+            positions: globalPositions,
+            width: 6,
+            material: new Cesium.PolylineGlowMaterialProperty({
+                glowPower: 0.3,
+                color: color
+            }),
+            clampToGround: false,
+            depthFailMaterial: new Cesium.PolylineDashMaterialProperty({
+                color: color.withAlpha(0.5)
+            })
+        }
+    });
+
+    if (globalPositions.length >= 2) {
+        viewer.entities.add({
+            position: globalPositions[0],
+            point: {
+                pixelSize: 14,
+                color: Cesium.Color.GREEN,
+                outlineColor: Cesium.Color.WHITE,
+                outlineWidth: 2
+            },
+            label: {
+                text: 'Start',
+                font: '12px Inter, sans-serif',
+                fillColor: Cesium.Color.WHITE,
+                outlineColor: Cesium.Color.BLACK,
+                outlineWidth: 2,
+                pixelOffset: new Cesium.Cartesian2(0, -20),
+                showBackground: true,
+                backgroundColor: new Cesium.Color(0, 0, 0, 0.6),
+                backgroundPadding: new Cesium.Cartesian2(6, 4)
+            }
+        });
+
+        viewer.entities.add({
+            position: globalPositions[globalPositions.length - 1],
+            point: {
+                pixelSize: 14,
+                color: Cesium.Color.RED,
+                outlineColor: Cesium.Color.WHITE,
+                outlineWidth: 2
+            },
+            label: {
+                text: 'End',
+                font: '12px Inter, sans-serif',
+                fillColor: Cesium.Color.WHITE,
+                outlineColor: Cesium.Color.BLACK,
+                outlineWidth: 2,
+                pixelOffset: new Cesium.Cartesian2(0, -20),
+                showBackground: true,
+                backgroundColor: new Cesium.Color(0, 0, 0, 0.6),
+                backgroundPadding: new Cesium.Cartesian2(6, 4)
+            }
+        });
     }
-});
 
-if (globalPositions.length >= 2) {
-    viewer.entities.add({
-        position: globalPositions[0],
-        point: {
-            pixelSize: 14,
-            color: Cesium.Color.GREEN,
-            outlineColor: Cesium.Color.WHITE,
-            outlineWidth: 2
-        },
-        label: {
-            text: 'Start',
-            font: '12px Inter, sans-serif',
-            fillColor: Cesium.Color.WHITE,
-            outlineColor: Cesium.Color.BLACK,
-            outlineWidth: 2,
-            pixelOffset: new Cesium.Cartesian2(0, -20),
-            showBackground: true,
-            backgroundColor: new Cesium.Color(0, 0, 0, 0.6),
-            backgroundPadding: new Cesium.Cartesian2(6, 4)
-        }
-    });
-
-    viewer.entities.add({
-        position: globalPositions[globalPositions.length - 1],
-        point: {
-            pixelSize: 14,
-            color: Cesium.Color.RED,
-            outlineColor: Cesium.Color.WHITE,
-            outlineWidth: 2
-        },
-        label: {
-            text: 'End',
-            font: '12px Inter, sans-serif',
-            fillColor: Cesium.Color.WHITE,
-            outlineColor: Cesium.Color.BLACK,
-            outlineWidth: 2,
-            pixelOffset: new Cesium.Cartesian2(0, -20),
-            showBackground: true,
-            backgroundColor: new Cesium.Color(0, 0, 0, 0.6),
-            backgroundPadding: new Cesium.Cartesian2(6, 4)
-        }
-    });
+    console.log(' Route drawn with', globalPositions.length, 'points');
 }
-
-console.log(' Route drawn with', globalPositions.length, 'points');
 
 window.filterBuildingView = filterBuildingView;
 window.triggerBirdsEyeView = triggerBirdsEyeView;

@@ -2,9 +2,14 @@ function findPath(startName, endName) {
     const nodes = window.networkData.nodes;
     const edges = window.networkData.edges;
 
-    // Find node IDs by name
-    const startNode = nodes.find(n => n.name.toLowerCase() === startName.toLowerCase());
-    const endNode = nodes.find(n => n.name.toLowerCase() === endName.toLowerCase());
+    // Find node IDs by room number or recovered label
+    const matches = (n, value) => {
+        const needle = value.toLowerCase();
+        return (n.name || '').toLowerCase() === needle ||
+            (n.label || '').toLowerCase() === needle;
+    };
+    const startNode = nodes.find(n => matches(n, startName));
+    const endNode = nodes.find(n => matches(n, endName));
 
     if (!startNode) {
         return { error: `Start location "${startName}" not found` };
@@ -79,10 +84,11 @@ function findPath(startName, endName) {
     // Convert IDs to names with 3D coordinates
     const pathNodes = pathIds.map(id => nodes.find(n => n.id === id)).filter(n => n);
 
-    const pathNames = pathNodes.map(n => n.name);
+    const pathNames = pathNodes.map(n => n.label || n.name);
     const pathDetails = pathNodes.map(n => ({
         id: n.id,
         name: n.name,
+        label: n.label || n.name,
         floor: n.floor,
         floor_elevation: n.floor_elevation || 0,
         x: n.x || 0,
@@ -97,8 +103,8 @@ function findPath(startName, endName) {
         distance: distances[endNode.id],
         steps: pathIds.length - 1,
         nodes: pathNodes,
-        start: startNode.name,
-        end: endNode.name,
+        start: startNode.label || startNode.name,
+        end: endNode.label || endNode.name,
         floors: [...new Set(pathNodes.map(n => n.floor))]
     };
 }

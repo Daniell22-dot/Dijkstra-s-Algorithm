@@ -25,7 +25,7 @@ class RoutingEngine:
         try:
             # Try to load from database
             nodes = db.execute_query("""
-                SELECT id, name, floor, x, y, z, node_type, is_room
+                SELECT id, name, label, floor, x, y, z, node_type, is_room
                 FROM network_nodes
             """)
             
@@ -40,6 +40,7 @@ class RoutingEngine:
                     self.graph.add_node(
                         node['id'],
                         name=node['name'],
+                        label=node.get('label'),
                         floor=node['floor'],
                         x=node['x'],
                         y=node['y'],
@@ -81,6 +82,7 @@ class RoutingEngine:
                     self.graph.add_node(
                         node['id'],
                         name=node['name'],
+                        label=node.get('label'),
                         floor=node['floor'],
                         x=node['x'],
                         y=node['y'],
@@ -139,6 +141,7 @@ class RoutingEngine:
             self.graph.add_node(
                 node['id'],
                 name=node['name'],
+                label=node.get('label'),
                 floor=node['floor'],
                 x=node['x'],
                 y=node['y'],
@@ -201,6 +204,7 @@ class RoutingEngine:
                 path_details.append({
                     'id': node_id,
                     'name': node_data.get('name', node_id),
+                    'label': node_data.get('label') or node_data.get('name', node_id),
                     'floor': node_data.get('floor', 'unknown'),
                     'type': node_data.get('type', 'unknown'),
                     'x': node_data.get('x', 0),
@@ -247,6 +251,7 @@ class RoutingEngine:
                 rooms.append({
                     'id': node_id,
                     'name': data.get('name', node_id),
+                    'label': data.get('label') or data.get('name', node_id),
                     'floor': data.get('floor', 'unknown')
                 })
         return sorted(rooms, key=lambda x: x['name'])

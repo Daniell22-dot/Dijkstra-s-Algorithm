@@ -5,6 +5,7 @@
     {
       "id": "3s1c80fJ5FFw6XQ5T9Mz$R",
       "name": "59",
+      "label": "Analytical Chem Lab",
       "floor": "Ground",
       "x": 3.757,
       "y": 32.106,
@@ -15,6 +16,7 @@
     {
       "id": "2npGxedbP5yx4uZYIZILy_",
       "name": "60",
+      "label": null,
       "floor": "Ground",
       "x": 24.553,
       "y": 33.99,
@@ -25,6 +27,7 @@
     {
       "id": "1vXS0s1Ev3NB0TS8ijMwiU",
       "name": "01",
+      "label": null,
       "floor": "Ground",
       "x": 11.797,
       "y": -12.807,
@@ -35,6 +38,7 @@
     {
       "id": "05$Dgzhkv6uhsSXPf2sbom",
       "name": "02",
+      "label": null,
       "floor": "Ground",
       "x": 18.575,
       "y": 9.376,
@@ -45,6 +49,7 @@
     {
       "id": "3ZiqISSsX2ffn$iZT3Bzig",
       "name": "03",
+      "label": null,
       "floor": "Ground",
       "x": -8.573,
       "y": 0.859,
@@ -55,6 +60,7 @@
     {
       "id": "3qs9Fl9GfAdP4u57V5LEoh",
       "name": "04",
+      "label": null,
       "floor": "Ground",
       "x": -8.129,
       "y": 22.82,
@@ -65,6 +71,7 @@
     {
       "id": "0unyiY27j6KxAlBFZPGJFY",
       "name": "05",
+      "label": null,
       "floor": "Ground",
       "x": 11.3,
       "y": 33.318,
@@ -75,6 +82,7 @@
     {
       "id": "2g8KNEEZHBDxhLMxx0KWJI",
       "name": "07",
+      "label": null,
       "floor": "Ground",
       "x": -3.744,
       "y": 20.881,
@@ -85,6 +93,7 @@
     {
       "id": "1Sbf96VUnDPRZCX8pAr_2h",
       "name": "08",
+      "label": null,
       "floor": "Ground",
       "x": 24.364,
       "y": 20.648,
@@ -95,6 +104,7 @@
     {
       "id": "1lZxX$x116jgAu5$cTXbYi",
       "name": "14",
+      "label": "Mechatronic Lab 2",
       "floor": "Ground",
       "x": 18.824,
       "y": -13.141,
@@ -105,6 +115,7 @@
     {
       "id": "1Pa6qfMvr5nPXJOq7tlN_e",
       "name": "15",
+      "label": "Sem Room Restricted Access",
       "floor": "Ground",
       "x": -0.368,
       "y": -14.81,
@@ -115,6 +126,7 @@
     {
       "id": "0JTg0FkIvBDuqB4k0lOBfp",
       "name": "16",
+      "label": "Office Of the Academic Leader",
       "floor": "Ground",
       "x": 36.783,
       "y": 20.89,
@@ -125,6 +137,7 @@
     {
       "id": "2Zbgv5hWz9mftwzAbiE7fj",
       "name": "22",
+      "label": null,
       "floor": "Ground",
       "x": -14.454,
       "y": -15.673,
@@ -135,6 +148,7 @@
     {
       "id": "1u9PHcvvD7ghdXd_5nRIxW",
       "name": "23",
+      "label": null,
       "floor": "Ground",
       "x": -14.148,
       "y": -10.066,
@@ -145,6 +159,7 @@
     {
       "id": "2gbcOaR5H7pQrTkFOkzUrI",
       "name": "24",
+      "label": null,
       "floor": "Ground",
       "x": -12.246,
       "y": -14.167,
@@ -155,6 +170,7 @@
     {
       "id": "0YWlYKeKr1a8qngx5nJtMu",
       "name": "25",
+      "label": null,
       "floor": "Ground",
       "x": -13.233,
       "y": -14.167,
@@ -165,6 +181,7 @@
     {
       "id": "1KVqwbRFzEgvBywOs0iTDF",
       "name": "26",
+      "label": null,
       "floor": "Ground",
       "x": -12.727,
       "y": -7.967,
@@ -175,6 +192,7 @@
     {
       "id": "0br82R0_LB5RBjnK8R2$fa",
       "name": "27",
+      "label": null,
       "floor": "Ground",
       "x": -7.737,
       "y": -10.671,
@@ -185,6 +203,7 @@
     {
       "id": "1JE_SRG$T8xAhKz542NNWG",
       "name": "28",
+      "label": null,
       "floor": "Ground",
       "x": -10.67,
       "y": -10.146,
@@ -195,6 +214,7 @@
     {
       "id": "2V30OEH8rBhwdgHPDnK8mg",
       "name": "40",
+      "label": null,
       "floor": "Ground",
       "x": -13.445,
       "y": 22.848,
@@ -205,6 +225,7 @@
     {
       "id": "3qOrXah8v6RuZKIc_ReDdi",
       "name": "41",
+      "label": null,
       "floor": "Ground",
       "x": -13.44,
       "y": 16.913,
@@ -215,6 +236,7 @@
     {
       "id": "1k2W06Pzf26fK6bai7jW6D",
       "name": "42",
+      "label": null,
       "floor": "Ground",
       "x": -4.362,
       "y": 12.61,
@@ -225,6 +247,7 @@
     {
       "id": "3504rY_PL1RQx3aznZLv8t",
       "name": "43",
+      "label": null,
       "floor": "Ground",
       "x": -14.082,
       "y": 8.037,
@@ -235,6 +258,7 @@
     {
       "id": "1Uixk8co177RIWGju6cUrJ",
       "name": "44",
+      "label": null,
       "floor": "Ground",
       "x": -13.44,
       "y": -1.242,
@@ -245,6 +269,7 @@
     {
       "id": "0isb5univ4W8IGA5I$3kpS",
       "name": "45",
+      "label": null,
       "floor": "Ground",
       "x": -4.032,
       "y": 1.331,
@@ -255,6 +280,7 @@
     {
       "id": "3mY4svjO93Kuq7mkBYAxcl",
       "name": "46",
+      "label": "Food Chem Lab",
       "floor": "Ground",
       "x": -2.803,
       "y": 9.102,
@@ -265,6 +291,7 @@
     {
       "id": "222qD_SiT6nO$Oh4GkGDL6",
       "name": "115",
+      "label": null,
       "floor": "Ground",
       "x": -9.604,
       "y": 33.366,
@@ -275,6 +302,7 @@
     {
       "id": "0JzMjQtRH2Uf6d7LWbC6hF",
       "name": "116",
+      "label": null,
       "floor": "Ground",
       "x": -10.006,
       "y": 29.727,
@@ -285,6 +313,7 @@
     {
       "id": "2CHVj6lOb0Mh0xnkOUARwZ",
       "name": "117",
+      "label": null,
       "floor": "Ground",
       "x": -7.508,
       "y": 32.764,
@@ -295,6 +324,7 @@
     {
       "id": "1BqTGEvqf3_RSGOJSNEABY",
       "name": "118",
+      "label": null,
       "floor": "Ground",
       "x": -4.656,
       "y": 31.131,
@@ -305,6 +335,7 @@
     {
       "id": "3$6n4SWn540ORyEgdLfS_e",
       "name": "119",
+      "label": null,
       "floor": "Ground",
       "x": 32.734,
       "y": 31.939,
@@ -315,6 +346,7 @@
     {
       "id": "2HMoye1Kz2NfmIcLT$nKEt",
       "name": "120",
+      "label": null,
       "floor": "Ground",
       "x": 35.877,
       "y": 31.459,
@@ -325,6 +357,7 @@
     {
       "id": "1JGjbrChrBlwtK05BZVjN5",
       "name": "09",
+      "label": null,
       "floor": "First",
       "x": -3.803,
       "y": 19.929,
@@ -335,6 +368,7 @@
     {
       "id": "3zDc1msMD9leK95Tj7LyV1",
       "name": "10",
+      "label": null,
       "floor": "First",
       "x": 25.46,
       "y": 17.914,
@@ -345,6 +379,7 @@
     {
       "id": "0dZwcTvof9OfTifZ9JIQAj",
       "name": "29",
+      "label": null,
       "floor": "First",
       "x": -7.601,
       "y": -12.266,
@@ -355,6 +390,7 @@
     {
       "id": "3L1ni8f4XFFRFEc09VTgCG",
       "name": "30",
+      "label": null,
       "floor": "First",
       "x": -10.597,
       "y": -12.304,
@@ -365,6 +401,7 @@
     {
       "id": "0TJOfXganBz8HbgOeURj9z",
       "name": "47",
+      "label": null,
       "floor": "First",
       "x": 36.655,
       "y": 23.299,
@@ -375,6 +412,7 @@
     {
       "id": "19S9XliuPBjuYxM0uzpaNM",
       "name": "48",
+      "label": null,
       "floor": "First",
       "x": 36.373,
       "y": 16.637,
@@ -385,6 +423,7 @@
     {
       "id": "3pdsLoHz54NPxP2KtD9qIT",
       "name": "49",
+      "label": null,
       "floor": "First",
       "x": 36.146,
       "y": 12.316,
@@ -395,6 +434,7 @@
     {
       "id": "096Xh4wiLFcPJB9ic7CET4",
       "name": "50",
+      "label": null,
       "floor": "First",
       "x": -13.445,
       "y": 22.848,
@@ -405,6 +445,7 @@
     {
       "id": "1EfXcV0fX6DRHy1zFU43pr",
       "name": "51",
+      "label": null,
       "floor": "First",
       "x": -13.39,
       "y": 16.863,
@@ -415,6 +456,7 @@
     {
       "id": "3X19DAIuTEC9UXVXADp6VD",
       "name": "52",
+      "label": null,
       "floor": "First",
       "x": 25.201,
       "y": -1.584,
@@ -425,6 +467,7 @@
     {
       "id": "3bUAn4cB5ABu155n1NRCHG",
       "name": "53",
+      "label": null,
       "floor": "First",
       "x": -2.803,
       "y": 9.102,
@@ -435,6 +478,7 @@
     {
       "id": "1XreL2MmH5fvfVWTfIVDNe",
       "name": "54",
+      "label": null,
       "floor": "First",
       "x": -13.44,
       "y": -1.242,
@@ -445,6 +489,7 @@
     {
       "id": "0gcnDHqEDDruE_sQDL6gQ0",
       "name": "55",
+      "label": "Micro Teaching Lab",
       "floor": "First",
       "x": -2.809,
       "y": 1.814,
@@ -455,6 +500,7 @@
     {
       "id": "1cDFEHHU933ATj41XkPDSY",
       "name": "56",
+      "label": null,
       "floor": "First",
       "x": -2.906,
       "y": 12.983,
@@ -465,6 +511,7 @@
     {
       "id": "2HRRRKlubEiPqhP9f3QABm",
       "name": "57",
+      "label": null,
       "floor": "First",
       "x": 24.553,
       "y": 33.99,
@@ -475,6 +522,7 @@
     {
       "id": "0aUSQb_Rz6MQBDxFoD3Uxg",
       "name": "58",
+      "label": null,
       "floor": "First",
       "x": 3.757,
       "y": 32.106,
@@ -485,6 +533,7 @@
     {
       "id": "0XzjwEUeXCJAdGkMc5OcIS",
       "name": "82",
+      "label": "SATIMA Auditorium",
       "floor": "First",
       "x": 0.24,
       "y": -13.656,
@@ -495,6 +544,7 @@
     {
       "id": "285cuy89L3TAhMZbJbOYj8",
       "name": "83",
+      "label": null,
       "floor": "First",
       "x": -14.04,
       "y": 7.835,
@@ -505,6 +555,7 @@
     {
       "id": "3rzfJqG01AS9x$LfnCC3SZ",
       "name": "100",
+      "label": null,
       "floor": "First",
       "x": 15.458,
       "y": -13.727,
@@ -515,6 +566,7 @@
     {
       "id": "3oQM74TSD8_8Ri5vt96jla",
       "name": "101",
+      "label": null,
       "floor": "First",
       "x": 20.714,
       "y": -13.726,
@@ -525,6 +577,7 @@
     {
       "id": "2Dnq0qoKb39f_nn40S7QRb",
       "name": "102",
+      "label": null,
       "floor": "First",
       "x": -13.955,
       "y": -10.58,
@@ -535,6 +588,7 @@
     {
       "id": "36m0IHQkj0JR6vLlPwxyWT",
       "name": "103",
+      "label": null,
       "floor": "First",
       "x": -12.716,
       "y": -7.967,
@@ -545,6 +599,7 @@
     {
       "id": "0e2NKI$Wv6XhTiCTS5x3SZ",
       "name": "104",
+      "label": null,
       "floor": "First",
       "x": -14.454,
       "y": -15.673,
@@ -555,6 +610,7 @@
     {
       "id": "1EtTQplCPAsQfpXkvE6Huw",
       "name": "108",
+      "label": null,
       "floor": "First",
       "x": -7.857,
       "y": 0.697,
@@ -565,6 +621,7 @@
     {
       "id": "0Bf6mbakPF5ehdNqc8RUcJ",
       "name": "106",
+      "label": null,
       "floor": "First",
       "x": -7.627,
       "y": 24.727,
@@ -575,6 +632,7 @@
     {
       "id": "02fZv7dUH4XPFP$ol6KIA2",
       "name": "107",
+      "label": null,
       "floor": "First",
       "x": 18.929,
       "y": 7.999,
@@ -585,6 +643,7 @@
     {
       "id": "1EIVHxvT5AUOueXdgzKUl6",
       "name": "105",
+      "label": null,
       "floor": "First",
       "x": 24.416,
       "y": -16.082,
@@ -595,6 +654,7 @@
     {
       "id": "0$y6ebANHFmPwfSHWlwRY0",
       "name": "110",
+      "label": null,
       "floor": "First",
       "x": -10.132,
       "y": 31.322,
@@ -605,6 +665,7 @@
     {
       "id": "1D9rNWZ0bDuPDsE_EF1$UY",
       "name": "111",
+      "label": null,
       "floor": "First",
       "x": -7.629,
       "y": 34.27,
@@ -615,6 +676,7 @@
     {
       "id": "2d621XImT9E95b7f1QBaxg",
       "name": "112",
+      "label": null,
       "floor": "First",
       "x": -4.728,
       "y": 33.318,
@@ -625,6 +687,7 @@
     {
       "id": "2kjOnNeM9Dth$gHoohVJTT",
       "name": "113",
+      "label": null,
       "floor": "First",
       "x": 32.734,
       "y": 31.939,
@@ -635,6 +698,7 @@
     {
       "id": "0eG5WP5oTEJxPS6lAE2O3j",
       "name": "114",
+      "label": null,
       "floor": "First",
       "x": 35.877,
       "y": 31.459,
@@ -645,6 +709,7 @@
     {
       "id": "0j1NrYXr59ewH3br7WKe7b",
       "name": "62",
+      "label": null,
       "floor": "Second",
       "x": 16.986,
       "y": 33.298,
@@ -655,6 +720,7 @@
     {
       "id": "2nLg4xcvvCw9PO9m5JiDs0",
       "name": "61",
+      "label": null,
       "floor": "Second",
       "x": 29.58,
       "y": 34.27,
@@ -665,6 +731,7 @@
     {
       "id": "3fs2cUjz9AHwvFn1neVjA3",
       "name": "63",
+      "label": null,
       "floor": "Second",
       "x": 8.823,
       "y": 32.95,
@@ -675,6 +742,7 @@
     {
       "id": "0IWJrVmirFwQ6HDFid_cpY",
       "name": "38",
+      "label": null,
       "floor": "Second",
       "x": -7.874,
       "y": 23.79,
@@ -685,6 +753,7 @@
     {
       "id": "2URKUvL0zA1BxIdsQUTd5v",
       "name": "12",
+      "label": null,
       "floor": "Second",
       "x": -3.506,
       "y": 20.396,
@@ -695,6 +764,7 @@
     {
       "id": "1jaPFdiRf5tOdX4mo1Bro7",
       "name": "13",
+      "label": "VDI Computer Lab 1",
       "floor": "Second",
       "x": 24.88,
       "y": 19.951,
@@ -705,6 +775,7 @@
     {
       "id": "0Qcy$4fBP6txazgoqIscxr",
       "name": "89",
+      "label": null,
       "floor": "Second",
       "x": -10.229,
       "y": 32.988,
@@ -715,6 +786,7 @@
     {
       "id": "3h_bZBERTE6g_h_YD8wmGJ",
       "name": "90",
+      "label": null,
       "floor": "Second",
       "x": -7.421,
       "y": 33.728,
@@ -725,6 +797,7 @@
     {
       "id": "2cusrOHdbCWBsyYJRXyQ3$",
       "name": "34",
+      "label": "Microscopy Lab",
       "floor": "Second",
       "x": 15.099,
       "y": -12.6,
@@ -735,6 +808,7 @@
     {
       "id": "1FZC4iSJn09O9IhPd4czVf",
       "name": "35",
+      "label": "Nutrition Assessment Lab",
       "floor": "Second",
       "x": -2.81,
       "y": -1.242,
@@ -745,6 +819,7 @@
     {
       "id": "0quVQq7TT4YR1F_GXdvmjW",
       "name": "37",
+      "label": null,
       "floor": "Second",
       "x": -8.073,
       "y": 1.427,
@@ -755,6 +830,7 @@
     {
       "id": "2JJkKm_3j5DOiy3xu3rVC2",
       "name": "64",
+      "label": null,
       "floor": "Second",
       "x": 36.146,
       "y": 22.913,
@@ -765,6 +841,7 @@
     {
       "id": "1EXYuWKyz17O9WwOltc6$H",
       "name": "65",
+      "label": null,
       "floor": "Second",
       "x": 36.127,
       "y": 17.009,
@@ -775,6 +852,7 @@
     {
       "id": "1ZeSlKrKj06Biv3aofW4EO",
       "name": "66",
+      "label": null,
       "floor": "Second",
       "x": 25.806,
       "y": 9.169,
@@ -785,6 +863,7 @@
     {
       "id": "3TJJ2N28v9WAkFhnjoti8H",
       "name": "67",
+      "label": null,
       "floor": "Second",
       "x": -12.559,
       "y": 22.387,
@@ -795,6 +874,7 @@
     {
       "id": "3cXXu9IMX8d9wem1vx$C49",
       "name": "68",
+      "label": null,
       "floor": "Second",
       "x": -12.555,
       "y": 16.675,
@@ -805,6 +885,7 @@
     {
       "id": "1mjYgJdBP3XebM1dP6FTvX",
       "name": "69",
+      "label": "COD's Office",
       "floor": "Second",
       "x": -0.926,
       "y": 31.847,
@@ -815,6 +896,7 @@
     {
       "id": "0OabyLvk1Dtht$TBwSVnc0",
       "name": "70",
+      "label": null,
       "floor": "Second",
       "x": 18.73,
       "y": 9.969,
@@ -825,6 +907,7 @@
     {
       "id": "0NMDFRSPT4tx7ym51XPrzX",
       "name": "71",
+      "label": "Electronics Lab",
       "floor": "Second",
       "x": 25.017,
       "y": 1.825,
@@ -835,6 +918,7 @@
     {
       "id": "0gaeO5X9zCrAqDSFyYY42v",
       "name": "72",
+      "label": "Virtual Reality Lab",
       "floor": "Second",
       "x": 35.481,
       "y": 12.533,
@@ -845,6 +929,7 @@
     {
       "id": "2nAv2bKSj86gYG8ei6Gbk8",
       "name": "75",
+      "label": "Storage Room",
       "floor": "Second",
       "x": -2.81,
       "y": 4.883,
@@ -855,6 +940,7 @@
     {
       "id": "1U1NbIv8P2pQGbcVYSv7aA",
       "name": "76",
+      "label": "Dean School Of Engineering",
       "floor": "Second",
       "x": -3.739,
       "y": 10.844,
@@ -865,6 +951,7 @@
     {
       "id": "2Gf$FMPND5sxB4POfwIgSj",
       "name": "77",
+      "label": "Lecturer's Office",
       "floor": "Second",
       "x": -12.768,
       "y": 11.651,
@@ -875,6 +962,7 @@
     {
       "id": "3eZQ_Ps550MPUjSq_bnMHh",
       "name": "78",
+      "label": null,
       "floor": "Second",
       "x": -12.768,
       "y": 4.031,
@@ -885,6 +973,7 @@
     {
       "id": "0JS3hxZCDEIemLv68eKon7",
       "name": "79",
+      "label": "Restricted Access",
       "floor": "Second",
       "x": -12.555,
       "y": -1.684,
@@ -895,6 +984,7 @@
     {
       "id": "1atPuwXijCJB48suvdCZ3j",
       "name": "80",
+      "label": "Postgraduate Chem Research",
       "floor": "Second",
       "x": 0.441,
       "y": -12.288,
@@ -905,6 +995,7 @@
     {
       "id": "3eHWHP4S1DafG7zNFAu54x",
       "name": "81",
+      "label": null,
       "floor": "Second",
       "x": 36.672,
       "y": 0.706,
@@ -915,6 +1006,7 @@
     {
       "id": "1zcqCAbhP5S9nW_IF4u7kZ",
       "name": "84",
+      "label": null,
       "floor": "Second",
       "x": 35.63,
       "y": 30.75,
@@ -925,6 +1017,7 @@
     {
       "id": "26M17bLwv3LRM1FyZNwYKB",
       "name": "85",
+      "label": null,
       "floor": "Second",
       "x": 32.91,
       "y": 30.75,
@@ -935,6 +1028,7 @@
     {
       "id": "1IXhaqMSLAUhGBLJPJ6Nfb",
       "name": "86",
+      "label": null,
       "floor": "Second",
       "x": -9.258,
       "y": 30.354,
@@ -945,6 +1039,7 @@
     {
       "id": "3iXcZFuyL0EQUmJgepvcf1",
       "name": "87",
+      "label": null,
       "floor": "Second",
       "x": -11.083,
       "y": 29.615,
@@ -955,6 +1050,7 @@
     {
       "id": "0l3qzbm6HCShDOtfGIyHzX",
       "name": "88",
+      "label": null,
       "floor": "Second",
       "x": -11.727,
       "y": 32.966,
@@ -965,6 +1061,7 @@
     {
       "id": "1595nCdWj7YQSooeybRYBd",
       "name": "91",
+      "label": null,
       "floor": "Second",
       "x": -10.579,
       "y": -10.146,
@@ -975,6 +1072,7 @@
     {
       "id": "164QWnqWz12uBNf5V4dMZc",
       "name": "92",
+      "label": null,
       "floor": "Second",
       "x": -14.1,
       "y": -9.115,
@@ -985,6 +1083,7 @@
     {
       "id": "2xUriE2zjDQOwNPOpph9WL",
       "name": "93",
+      "label": null,
       "floor": "Second",
       "x": -14.48,
       "y": -14.778,
@@ -995,6 +1094,7 @@
     {
       "id": "2v42MyO1jBrORIY0vMcNH2",
       "name": "94",
+      "label": null,
       "floor": "Second",
       "x": -13.259,
       "y": -14.167,
@@ -1005,6 +1105,7 @@
     {
       "id": "2BRZ2$aoP9th$nUWn_d58T",
       "name": "95",
+      "label": null,
       "floor": "Second",
       "x": -12.271,
       "y": -14.167,
@@ -1015,6 +1116,7 @@
     {
       "id": "3QwRWKm7f0J9a5kdVGoAkS",
       "name": "96",
+      "label": null,
       "floor": "Second",
       "x": -7.743,
       "y": -10.671,
@@ -1025,6 +1127,7 @@
     {
       "id": "2qoBsdpKLFXArHM5RzNIw_",
       "name": "97",
+      "label": null,
       "floor": "Second",
       "x": 24.502,
       "y": -15.16,
@@ -1035,6 +1138,7 @@
     {
       "id": "0IR8k7cKD2XPdvuf$o6_Z3",
       "name": "98",
+      "label": "Darkroom",
       "floor": "Second",
       "x": 26.534,
       "y": 12.718,
@@ -1045,6 +1149,7 @@
     {
       "id": "1YjYucQrv5ZPbkSwy9ZyGM",
       "name": "99",
+      "label": null,
       "floor": "Second",
       "x": 35.987,
       "y": 9.442,

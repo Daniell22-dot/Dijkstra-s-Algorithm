@@ -96,6 +96,7 @@ def initialize_database():
         CREATE TABLE IF NOT EXISTS rooms (
             id VARCHAR(64) PRIMARY KEY,
             name VARCHAR(100) NOT NULL,
+            label VARCHAR(200),
             floor VARCHAR(20) NOT NULL,
             type VARCHAR(50),
             area NUMERIC(10, 2),
@@ -150,6 +151,7 @@ def initialize_database():
         CREATE TABLE IF NOT EXISTS network_nodes (
             id VARCHAR(64) PRIMARY KEY,
             name VARCHAR(100) NOT NULL,
+            label VARCHAR(200),
             floor VARCHAR(20) NOT NULL,
             x NUMERIC(10, 3),
             y NUMERIC(10, 3),
@@ -168,6 +170,8 @@ def initialize_database():
             edge_type VARCHAR(20)
         )
         """,
+        "ALTER TABLE rooms ADD COLUMN IF NOT EXISTS label VARCHAR(200)",
+        "ALTER TABLE network_nodes ADD COLUMN IF NOT EXISTS label VARCHAR(200)",
         "CREATE INDEX IF NOT EXISTS idx_rooms_floor ON rooms(floor)",
         "CREATE INDEX IF NOT EXISTS idx_doors_floor ON doors(floor)",
         "CREATE INDEX IF NOT EXISTS idx_windows_floor ON windows(floor)",
