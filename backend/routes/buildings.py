@@ -12,13 +12,13 @@ def get_building_info():
     """Get general building information"""
     try:
         # Get room count
-        room_count = db.execute_one("SELECT COUNT(*) FROM rooms")[0]
+        room_count = db.execute_one("SELECT COUNT(*) AS count FROM rooms")['count']
         
         # Get floor count
-        floor_count = db.execute_one("SELECT COUNT(DISTINCT floor) FROM rooms")[0]
+        floor_count = db.execute_one("SELECT COUNT(DISTINCT floor) AS count FROM rooms")['count']
         
         # Get total area
-        total_area = db.execute_one("SELECT COALESCE(SUM(area), 0) FROM rooms")[0]
+        total_area = float(db.execute_one("SELECT COALESCE(SUM(area), 0) AS total FROM rooms")['total'])
         
         # Get room types
         types_query = """
@@ -81,13 +81,13 @@ def get_statistics():
         stats = {}
         
         # Total rooms
-        stats['total_rooms'] = db.execute_one("SELECT COUNT(*) FROM rooms")[0]
+        stats['total_rooms'] = db.execute_one("SELECT COUNT(*) AS count FROM rooms")['count']
         
         # Average area
-        stats['avg_area'] = db.execute_one("SELECT COALESCE(AVG(area), 0) FROM rooms")[0]
+        stats['avg_area'] = float(db.execute_one("SELECT COALESCE(AVG(area), 0) AS avg FROM rooms")['avg'])
         
         # Average temperature
-        stats['avg_temperature'] = db.execute_one("SELECT COALESCE(AVG(temperature), 0) FROM rooms")[0]
+        stats['avg_temperature'] = float(db.execute_one("SELECT COALESCE(AVG(temperature), 0) AS avg FROM rooms")['avg'])
         
         # Rooms by floor
         floor_query = """

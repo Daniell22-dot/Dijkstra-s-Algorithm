@@ -10,6 +10,13 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__, static_folder='../src')
 CORS(app)
 
+# Database-backed API (rooms, routing, buildings)
+from routes import rooms_bp, routing_bp, buildings_bp
+
+app.register_blueprint(rooms_bp)
+app.register_blueprint(routing_bp)
+app.register_blueprint(buildings_bp)
+
 app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100MB limit
 UPLOAD_FOLDER = '../storage'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
