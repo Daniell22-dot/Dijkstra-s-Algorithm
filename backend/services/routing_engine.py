@@ -59,11 +59,11 @@ class RoutingEngine:
                         type=edge['edge_type']
                     )
                 
-                print(f"✅ Loaded network: {self.graph.number_of_nodes()} nodes, {self.graph.number_of_edges()} edges")
+                print(f"Loaded network: {self.graph.number_of_nodes()} nodes, {self.graph.number_of_edges()} edges")
                 return
         
         except Exception as e:
-            print(f"⚠️ Could not load from database: {e}")
+            print(f"Could not load from database: {e}")
         
         # Fallback: Load from JSON file
         self._load_from_json()
