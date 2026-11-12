@@ -7,7 +7,7 @@ export default function Home() {
         <div className="nav-inner">
           <div>
             <h1 className="wide text-2xl font-bold tracking-wider">
-              Bulwark Campus Digital Twin
+              Campus Digital Twin
             </h1>
           </div>
           <nav className="nav-links">
@@ -85,12 +85,12 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bulwark py-12 mt-auto border-t border-zinc-800">
+      <footer className="py-12 mt-auto border-t border-zinc-800">
         <div className="footer-grid max-w-7xl grid-cols-1 md:grid-cols-2 gap-8 px-8">
           <div>
-            <h4 className="wide text-lg font-bold mb-3">Bulwark</h4>
+            <h4 className="wide text-lg font-bold mb-3">Campus Digital Twin</h4>
             <p className="text-zinc-400 text-sm">
-              Cybersecurity, engineered in Kenya
+              Indoor navigation, engineered in Kenya
             </p>
           </div>
           <div>

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Bulwark Campus Digital Twin",
-  description: "3D Campus Digital Twin with Bulwark visual theme",
+  title: "Campus Digital Twin",
+  description: "3D Campus Digital Twin with indoor navigation",
 };
 
 export default function RootLayout({

@@ -1,4 +1,3 @@
-/* Bulwark Theme - Cybersecurity, engineered in Kenya */
 @layer base {
   :root {
     /* ----- colour palette ----- */
@@ -126,6 +125,6 @@
   .sev.CRITICAL {color:#ff5a5f;border-color:#ff5a5f;background:rgba(255,90,95,.08);}
   .sev.HIGH {color:#ffb347;border-color:#ffb347;background:rgba(255,179,71,.08);}
   .sev.MEDIUM {color:var(--gold);border-color:var(--gold);background:rgba(255,215,0,.08);}
-  .sev.LOW {color:#b0b8c4;border-color:#b0b8c4;background:rgba(255,255,255,.04);}
+.sev.LOW {color:#b0b8c4;border-color:#b0b8c4;background:rgba(255,255,255,.04);}
   .sev.INFO {color:var(--neon);border-color:var(--neon);background:rgba(5,229,99,.08);}
 }
