@@ -63,8 +63,15 @@ async function fetchNetworkData() {
 // Initialize when module loads
 fetchNetworkData();
 
- // Export for global access
- window.networkData = networkData;
- window.fetchNetworkData = fetchNetworkData;
+// Initialize pathfinding module with network data
+setTimeout(() => {
+    if (window.initNetworkData) {
+        window.initNetworkData();
+    }
+}, 1000);
+
+// Export for global access
+window.networkData = networkData;
+window.fetchNetworkData = fetchNetworkData;
 
  console.log('Routing network module loaded - fetching real data from API');
