@@ -56,11 +56,29 @@ type StoreyTile = {
     };
   };
   content?: {
-    _model?: {
-      show: boolean;
-    };
+    url?: string;
+    _model?: CesiumTypes.Model;
   };
   children?: StoreyTile[];
+};
+
+type ElementInfo = {
+  node: number;
+  mesh: number;
+  id: number | null;
+  class: string | null;
+  name: string | null;
+  containerId: number | null;
+  storey: string;
+};
+
+type ElementIndex = Record<string, ElementInfo[]>;
+
+type PickedElement = {
+  className: string;
+  name: string;
+  storey: string;
+  id: number | null;
 };
 
 type ViewerApi = {
@@ -69,6 +87,8 @@ type ViewerApi = {
   clearRoute: () => void;
   resetView: () => void;
   topView: () => void;
+  focusPoint: (x: number, y: number, z: number, label: string) => void;
+  focusElement: (file: string, node: number, label: string) => void;
 };
 
 const FALLBACK_BUILDING: BuildingConfig = {
@@ -97,6 +117,8 @@ declare global {
   interface Window {
     CESIUM_BASE_URL?: string;
     viewer?: CesiumTypes.Viewer;
+    targetMatrix?: CesiumTypes.Matrix4;
+    tilesetRootTransform?: CesiumTypes.Matrix4;
     activeTileset?: CesiumTypes.Cesium3DTileset;
   }
 }
@@ -195,16 +217,20 @@ export default function CampusTwin() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const viewerApiRef = useRef<ViewerApi | null>(null);
   const pickMarkerRef = useRef<CesiumTypes.Entity | null>(null);
+  const focusMarkerRef = useRef<CesiumTypes.Entity | null>(null);
 
   const [status, setStatus] = useState("Booting Cesium");
   const [network, setNetwork] = useState<NetworkData | null>(null);
   const [building, setBuilding] = useState<BuildingConfig | null>(null);
+  const [elementIndex, setElementIndex] = useState<ElementIndex | null>(null);
   const [floor, setFloor] = useState<Floor>("all");
   const [startId, setStartId] = useState("");
   const [endId, setEndId] = useState("");
   const [route, setRoute] = useState<RouteResult | null>(null);
   const [routeError, setRouteError] = useState("");
   const [picked, setPicked] = useState("");
+  const [pickedElement, setPickedElement] = useState<PickedElement | null>(null);
+  const [selectedStair, setSelectedStair] = useState("");
   const [isRouting, setIsRouting] = useState(false);
   const [cameraPitch, setCameraPitch] = useState<number | null>(null);
   const [tileCount, setTileCount] = useState<number | null>(null);
@@ -220,6 +246,15 @@ export default function CampusTwin() {
         return nodeLabel(a).localeCompare(nodeLabel(b));
       });
   }, [network]);
+
+  const stairOptions = useMemo(() => {
+    if (!elementIndex) return [];
+    return Object.entries(elementIndex).flatMap(([file, elements]) =>
+      elements
+        .filter((element) => element.class === "IfcStair")
+        .map((element) => ({ file, ...element }))
+    );
+  }, [elementIndex]);
 
   const defaultStartId = useMemo(() => {
     if (!roomNodes.length) return "";
@@ -250,6 +285,7 @@ export default function CampusTwin() {
     let activeFloor: Floor = "all";
     const routeEntities: CesiumTypes.Entity[] = [];
     const storeyTiles = new Map<string, StoreyTile>();
+    const modelByFile = new Map<string, CesiumTypes.Model>();
 
     const requestRender = () => viewer?.scene.requestRender();
 
@@ -276,6 +312,17 @@ export default function CampusTwin() {
       tile.children?.forEach(collectStoreyTiles);
     };
 
+    const collectModels = (tile: StoreyTile) => {
+      const content = tile.content;
+      const model = content?._model;
+      const url = content?.url;
+      if (model && url) {
+        const fileName = url.split("/").pop()?.split("?")[0];
+        if (fileName) modelByFile.set(fileName, model);
+      }
+      tile.children?.forEach(collectModels);
+    };
+
     const clearRouteEntities = () => {
       if (!viewer) return;
       routeEntities.forEach((entity) => viewer?.entities.remove(entity));
@@ -287,13 +334,17 @@ export default function CampusTwin() {
       if (!containerRef.current) return;
 
       setStatus("Loading campus data");
-      const [registryResponse, networkResponse] = await Promise.all([
+      const [registryResponse, networkResponse, elementIndexResponse] = await Promise.all([
         fetch("/data/campus_registry.json", { cache: "no-store" }),
         fetch("/data/routing/network_graph.json", { cache: "no-store" }),
+        fetch("/data/models/element_index.json", { cache: "no-store" }),
       ]);
 
       const registry = registryResponse.ok ? await registryResponse.json() : {};
       const networkData: NetworkData = await networkResponse.json();
+      const elementIndexData: ElementIndex = elementIndexResponse.ok
+        ? await elementIndexResponse.json()
+        : {};
       if (disposed) return;
 
       const registeredBuilding = registry?.DEDO ?? {};
@@ -305,6 +356,7 @@ export default function CampusTwin() {
 
       setBuilding(buildingConfig);
       setNetwork(networkData);
+      setElementIndex(elementIndexData);
       setStatus("Starting WebGL");
 
       window.CESIUM_BASE_URL = "/cesium";
@@ -365,6 +417,7 @@ export default function CampusTwin() {
         matrix = Cesium.Matrix4.multiply(matrix, rotation4, new Cesium.Matrix4());
       }
       targetMatrix = matrix;
+      window.targetMatrix = matrix;
 
       const groundHalfLat = 90 / 111320;
       const groundHalfLon = 90 / (111320 * Math.cos((buildingConfig.lat * Math.PI) / 180));
@@ -395,6 +448,7 @@ export default function CampusTwin() {
       }
 
       const rootTransform = tileset.root?.transform ?? Cesium.Matrix4.IDENTITY;
+      window.tilesetRootTransform = rootTransform;
       const inverseRoot = Cesium.Matrix4.inverse(rootTransform, new Cesium.Matrix4());
       if (!inverseRoot) {
         throw new Error("The tileset root transform is not invertible.");
@@ -408,8 +462,11 @@ export default function CampusTwin() {
       window.activeTileset = tileset;
 
       collectStoreyTiles(tileset.root as unknown as StoreyTile);
+      collectModels(tileset.root as unknown as StoreyTile);
       tileset.tileVisible.addEventListener((tile) => {
-        applyFloorToTile(tile as unknown as StoreyTile);
+        const storeyTile = tile as unknown as StoreyTile;
+        applyFloorToTile(storeyTile);
+        collectModels(storeyTile);
       });
       const tileStats = tileset as unknown as {
         statistics?: { numberOfTilesTotal?: number };
@@ -443,6 +500,116 @@ export default function CampusTwin() {
           ),
           duration: 1.2,
         });
+      };
+
+      const clearFocusMarker = () => {
+        if (!viewer || !focusMarkerRef.current) return;
+        viewer.entities.remove(focusMarkerRef.current);
+        focusMarkerRef.current = null;
+      };
+
+      const addFocusMarker = (position: CesiumTypes.Cartesian3, label: string) => {
+        if (!viewer) return;
+        clearFocusMarker();
+        focusMarkerRef.current = viewer.entities.add({
+          position,
+          point: {
+            pixelSize: 12,
+            color: Cesium.Color.fromCssColorString("#ffd700"),
+            outlineColor: Cesium.Color.BLACK,
+            outlineWidth: 2,
+          },
+          label: {
+            text: label,
+            font: "12px Inter, sans-serif",
+            fillColor: Cesium.Color.WHITE,
+            outlineColor: Cesium.Color.BLACK,
+            outlineWidth: 2,
+            pixelOffset: new Cesium.Cartesian2(0, -24),
+            showBackground: true,
+            backgroundColor: Cesium.Color.fromCssColorString("#000000").withAlpha(0.78),
+            backgroundPadding: new Cesium.Cartesian2(8, 5),
+          },
+        });
+      };
+
+      const focusPoint = (x: number, y: number, z: number, label: string) => {
+        if (!viewer || !targetMatrix) return;
+        const position = Cesium.Matrix4.multiplyByPoint(
+          targetMatrix,
+          new Cesium.Cartesian3(x, y, z),
+          new Cesium.Cartesian3()
+        );
+        addFocusMarker(position, label);
+        viewer.camera.flyToBoundingSphere(new Cesium.BoundingSphere(position, 5), {
+          offset: new Cesium.HeadingPitchRange(
+            Cesium.Math.toRadians(25),
+            Cesium.Math.toRadians(-35),
+            28
+          ),
+          duration: 1.2,
+        });
+        setPicked(label);
+        setPickedElement(null);
+        requestRender();
+      };
+
+      const focusElement = (file: string, nodeId: number, label: string) => {
+        if (!viewer) return;
+        if (tileset) collectModels(tileset.root as unknown as StoreyTile);
+        const model = modelByFile.get(file);
+        if (!model) {
+          setPicked(`${label} · tile not loaded`);
+          return;
+        }
+
+        const sceneGraph = (
+          model as unknown as {
+            _sceneGraph?: {
+              _runtimeNodes?: Array<{
+                _id?: number;
+                _computedTransform?: CesiumTypes.Matrix4;
+                runtimePrimitives?: Array<{
+                  boundingSphere?: CesiumTypes.BoundingSphere;
+                }>;
+              }>;
+            };
+          }
+        )._sceneGraph;
+        const node = sceneGraph?._runtimeNodes?.find(
+          (candidate) => candidate._id === nodeId
+        );
+        const boundingSphere = node?.runtimePrimitives?.[0]?.boundingSphere;
+        if (!node || !boundingSphere) {
+          setPicked(`${label} · geometry not ready`);
+          return;
+        }
+
+        const nodeCenter = Cesium.Matrix4.multiplyByPoint(
+          node._computedTransform ?? Cesium.Matrix4.IDENTITY,
+          boundingSphere.center,
+          new Cesium.Cartesian3()
+        );
+        const worldCenter = Cesium.Matrix4.multiplyByPoint(
+          model.modelMatrix,
+          nodeCenter,
+          new Cesium.Cartesian3()
+        );
+        addFocusMarker(worldCenter, label);
+        viewer.camera.flyToBoundingSphere(
+          new Cesium.BoundingSphere(worldCenter, Math.max(boundingSphere.radius, 3)),
+          {
+            offset: new Cesium.HeadingPitchRange(
+              Cesium.Math.toRadians(25),
+              Cesium.Math.toRadians(-35),
+              Math.max(24, boundingSphere.radius * 2.2)
+            ),
+            duration: 1.2,
+          }
+        );
+        setPicked(label);
+        setPickedElement(null);
+        requestRender();
       };
 
       const drawRoute = (nodes: NetworkNode[]) => {
@@ -553,6 +720,7 @@ export default function CampusTwin() {
         const pickedFeature = viewer.scene.pick(movement.position);
         if (!Cesium.defined(pickedFeature)) {
           setPicked("");
+          setPickedElement(null);
           if (pickMarkerRef.current) {
             viewer.entities.remove(pickMarkerRef.current);
             pickMarkerRef.current = null;
@@ -578,9 +746,32 @@ export default function CampusTwin() {
         const cartographic = Cesium.Cartographic.fromCartesian(cartesian);
         const lat = Cesium.Math.toDegrees(cartographic.latitude);
         const lon = Cesium.Math.toDegrees(cartographic.longitude);
-        setPicked(
-          `${lat.toFixed(6)}, ${lon.toFixed(6)} · ${cartographic.height.toFixed(1)} m`
-        );
+        const location = `${lat.toFixed(6)}, ${lon.toFixed(6)} · ${cartographic.height.toFixed(1)} m`;
+        const feature = pickedFeature as unknown as {
+          content?: { url?: string };
+          detail?: { node?: { _id?: number } };
+        };
+        const fileName = feature.content?.url?.split("/").pop()?.split("?")[0];
+        const nodeId = feature.detail?.node?._id;
+        const element =
+          fileName && nodeId !== undefined
+            ? elementIndexData[fileName]?.find((entry) => entry.node === nodeId)
+            : undefined;
+
+        if (element) {
+          setPicked(
+            `${element.class ?? "Element"} ${element.name ?? ""} · ${element.storey} · ${location}`
+          );
+          setPickedElement({
+            className: element.class ?? "Element",
+            name: element.name ?? "Unnamed element",
+            storey: element.storey,
+            id: element.id,
+          });
+        } else {
+          setPicked(location);
+          setPickedElement(null);
+        }
 
         if (pickMarkerRef.current) {
           viewer.entities.remove(pickMarkerRef.current);
@@ -607,6 +798,8 @@ export default function CampusTwin() {
         clearRoute: clearRouteEntities,
         resetView,
         topView,
+        focusPoint,
+        focusElement,
       };
 
       setStatus("3D ready");
@@ -643,6 +836,8 @@ export default function CampusTwin() {
       }
       window.viewer = undefined;
       window.activeTileset = undefined;
+      window.targetMatrix = undefined;
+      window.tilesetRootTransform = undefined;
       viewer = null;
       tileset = null;
       targetMatrix = null;
@@ -686,6 +881,38 @@ export default function CampusTwin() {
   const startNode = roomNodes.find((node) => node.id === effectiveStartId);
   const endNode = roomNodes.find((node) => node.id === effectiveEndId);
 
+  const handleFocusStair = () => {
+    const stair = stairOptions.find(
+      (option) => `${option.file}:${option.node}` === selectedStair
+    );
+    if (!stair) return;
+    viewerApiRef.current?.focusElement(
+      stair.file,
+      stair.node,
+      `${stair.name ?? "Stair"} · ${stair.storey}`
+    );
+  };
+
+  const handleFocusStart = () => {
+    if (!startNode) return;
+    viewerApiRef.current?.focusPoint(
+      startNode.x,
+      startNode.y,
+      startNode.z,
+      nodeLabel(startNode)
+    );
+  };
+
+  const handleFocusEnd = () => {
+    if (!endNode) return;
+    viewerApiRef.current?.focusPoint(
+      endNode.x,
+      endNode.y,
+      endNode.z,
+      nodeLabel(endNode)
+    );
+  };
+
   return (
     <div className="bulwark app-shell">
       <header className="nav">
@@ -720,7 +947,8 @@ export default function CampusTwin() {
           <h1>School of Engineering</h1>
           <p className="hud-copy">
             Georeferenced BIM model with three storeys and a live indoor routing
-            network.
+            network. Select Ground or First to see inside, or click any wall,
+            door, stair or roof to inspect its IFC element.
           </p>
           <div className="coord-grid">
             <div>
@@ -746,6 +974,9 @@ export default function CampusTwin() {
             </button>
             <button className="btn btn-ghost" onClick={() => viewerApiRef.current?.topView()}>
               Top view
+            </button>
+            <button className="btn btn-ghost" onClick={() => setFloor("Ground")}>
+              Interior view
             </button>
           </div>
         </aside>
@@ -822,6 +1053,68 @@ export default function CampusTwin() {
           ) : null}
 
           {routeError ? <div className="route-error">{routeError}</div> : null}
+
+          <div className="divider" />
+
+          <div className="panel-head">
+            <span>Inspect element</span>
+            <span className="mono">IFC</span>
+          </div>
+          {pickedElement ? (
+            <div className="element-card">
+              <div className="element-class">{pickedElement.className}</div>
+              <div className="element-name">{pickedElement.name}</div>
+              <div className="element-meta">
+                {pickedElement.storey}
+                {pickedElement.id !== null ? ` · #${pickedElement.id}` : ""}
+              </div>
+            </div>
+          ) : (
+            <p className="hint">
+              Click a wall, door, stair or roof in the model to read its IFC
+              element.
+            </p>
+          )}
+          <label className="field">
+            <span>Stairs</span>
+            <select
+              value={selectedStair}
+              onChange={(event) => setSelectedStair(event.target.value)}
+            >
+              <option value="">Select a stair</option>
+              {stairOptions.map((stair) => (
+                <option
+                  key={`${stair.file}:${stair.node}`}
+                  value={`${stair.file}:${stair.node}`}
+                >
+                  {stair.name} · {stair.storey}
+                </option>
+              ))}
+            </select>
+          </label>
+          <div className="inspect-actions">
+            <button
+              className="btn btn-ghost"
+              onClick={handleFocusStair}
+              disabled={!selectedStair}
+            >
+              View stair
+            </button>
+            <button
+              className="btn btn-ghost"
+              onClick={handleFocusStart}
+              disabled={!startNode}
+            >
+              Focus start
+            </button>
+            <button
+              className="btn btn-ghost"
+              onClick={handleFocusEnd}
+              disabled={!endNode}
+            >
+              Focus destination
+            </button>
+          </div>
         </aside>
 
         <div id="data" className="hud hud-bottom glass">
@@ -847,7 +1140,9 @@ export default function CampusTwin() {
             </span>
             <span className="stat-label">camera pitch</span>
           </div>
-          <div className="picked">{picked || "Click the model to inspect a point"}</div>
+          <div className="picked" title={picked}>
+            {picked || "Click the model to inspect an IFC element"}
+          </div>
         </div>
       </main>
     </div>

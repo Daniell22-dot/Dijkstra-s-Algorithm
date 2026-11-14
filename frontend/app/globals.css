@@ -318,6 +318,7 @@
 
 .hud-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
@@ -490,6 +491,55 @@
   color: #ff9b9e;
   font-size: 0.74rem;
   line-height: 1.45;
+}
+
+.hint {
+  margin: 0 0 12px;
+  color: var(--txt-faint);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.element-card {
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 1px solid rgba(5, 229, 99, 0.24);
+  background: rgba(5, 229, 99, 0.05);
+}
+
+.element-class {
+  color: var(--neon);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.element-name {
+  margin-top: 4px;
+  color: var(--txt);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.element-meta {
+  margin-top: 4px;
+  color: var(--txt-faint);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+}
+
+.inspect-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.inspect-actions .btn {
+  flex: 1 1 30%;
+  padding: 10px 8px;
+  font-size: 0.58rem;
 }
 
 .stat {
