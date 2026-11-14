@@ -1,18 +1,21 @@
 import type { Metadata } from "next";
+import "cesium/Build/Cesium/Widgets/widgets.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Campus Digital Twin",
-  description: "3D Campus Digital Twin with indoor navigation",
+  title: "DeKUT Digital Twin | Indoor Navigation",
+  description:
+    "3D Web-GIS campus digital twin with BIM, CesiumJS and Dijkstra indoor routing.",
 };
 
 export default function RootLayout({
-  children}: { children: React.ReactNode }) {
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className="bulwark min-h-screen bg-black text-white">
-        {children}
-      </body>
+      <body className="bulwark min-h-screen bg-black text-white">{children}</body>
     </html>
   );
 }
