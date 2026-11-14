@@ -1,0 +1,24 @@
+{
+  "name": "dekut-3d-campus-digital-twin",
+  "version": "1.0.0",
+  "description": "![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)\r ![Cesium](https://img.shields.io/badge/Cesium_JS%20%2F%20Ion-1390H?style=for-the-badge&logo=cesium&logoColor=white&color=005A9C)\r ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)\r ![PostGIS / pgRouting](https://img.shields.io/badge/pgRouting_&_PostGIS-336791?style=for-the-badge&logo=postgresql&logoColor=33CCFF)\r ![SQL](https://img.shields.io/badge/SQL-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)\r ![ArchiCAD](https://img.shields.io/badge/ArchiCAD-004A94?style=for-the-badge&logo=archicad&logoColor=white&color=009FE3)\r ![Autodesk](https://img.shields.io/badge/AutoDESK-0696D7?style=for-the-badge&logo=autodesk&logoColor=white)\r ![Esri ArcGIS Pro](https://img.shields.io/badge/Esri_ArcGIS_Pro-007AC2?style=for-the-badge&logo=esri&logoColor=white)\r ![BIM / GIS Indoor Routing](https://img.shields.io/badge/BIM%20%2F%20GIS-Indoor_Routing-brightgreen?style=for-the-badge&logo=diagram-project)\r ![Dijkstra's Algorithm](https://img.shields.io/badge/Algorithm-Dijkstra's-orange?style=for-the-badge&logo=route)\r ![Mermaid](https://img.shields.io/badge/Diagrams-Mermaid.js-FF69B4?style=for-the-badge&logo=diagram-project)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daniell22-dot/Dijkstra-s-Algorithm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Daniell22-dot/Dijkstra-s-Algorithm/issues"
+  },
+  "homepage": "https://github.com/Daniell22-dot/Dijkstra-s-Algorithm#readme"
+}
